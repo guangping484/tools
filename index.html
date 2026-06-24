@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>奉天程序</title>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: #07070c;
+    background-image: linear-gradient(to bottom, #14141e 0%, #08080e 50%, #040408 100%);
+    color: #e8ddd0;
+    min-height: 100vh;
+    padding: 40px 20px;
+}
+
+    .container {
+        max-width: 1100px;
+        margin: 0 auto;
+    }
+
+    /* ===== 顶部标题 ===== */
+    .header {
+    text-align: center;
+    margin-bottom: 50px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid transparent;
+    background-image: linear-gradient(to right, transparent, rgba(212, 184, 120, 0.15), transparent);
+    background-size: 100% 1px;
+    background-position: bottom center;
+    background-repeat: no-repeat;
+}
+
+    .header .logo {
+    display: block;
+    margin-bottom: 10px;
+    color: #d4c5a0;      /* 香槟金 */
+    opacity: 0.7;
+    font-size: 48px;     /* 控制图标大小 */
+}
+
+    .header .logo svg {
+    width: 48px;
+    height: 48px;
+    stroke-width: 1.5;   /* 线条粗细 */
+}
+
+    .header h1 {
+        font-size: 68px;
+        font-weight: 700;
+        color: #d4c5a0;
+        letter-spacing: 30px;
+        text-shadow: 0 0 30px rgba(200, 180, 150, 0.08);
+        margin-bottom: 8px;
+    }
+
+    .header p {
+        color: rgba(200, 180, 150, 0.5);
+        font-size: 16px;
+        letter-spacing: 6px;
+        font-weight: 300;
+        margin-top: 6px;
+    }
+
+    .header .stats {
+        margin-top: 18px;
+        display: flex;
+        justify-content: center;
+        gap: 36px;
+        flex-wrap: wrap;
+    }
+
+    .header .stats span {
+        color: rgba(200, 180, 150, 0.4);
+        font-size: 13px;
+        letter-spacing: 1.5px;
+    }
+
+    .header .stats strong {
+        color: #d4c5a0;
+        font-size: 20px;
+        font-weight: 600;
+        margin: 0 4px;
+    }
+
+    /* ===== 工具卡片网格 ===== */
+    .tools-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 24px;
+        margin-bottom: 40px;
+    }
+
+    /* ===== 主卡片 ===== */
+    .tool-card {
+        background: rgba(20, 20, 30, 0.6);
+        backdrop-filter: blur(2px);
+        border-radius: 18px;
+        padding: 26px 22px;
+        border: 1px solid rgba(200, 180, 150, 0.12);
+        transition: all 0.35s ease;
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+    }
+
+    .tool-card:hover {
+        transform: translateY(-6px);
+        border-color: rgba(200, 180, 150, 0.5);
+        box-shadow: 
+            0 16px 60px rgba(0, 0, 0, 0.6),
+            0 0 30px rgba(200, 180, 150, 0.04);
+        background: rgba(35, 35, 50, 0.8);
+    }
+
+    .tool-card .icon {
+        font-size: 36px;
+        margin-bottom: 10px;
+        opacity: 0.7;
+    }
+
+    .tool-card .name {
+        font-size: 19px;
+        font-weight: 600;
+        color: #d4c5a0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .tool-card .name .version {
+        font-size: 10px;
+        font-weight: 300;
+        color: rgba(200, 180, 150, 0.2);
+        border: 1px solid rgba(200, 180, 150, 0.06);
+        padding: 1px 10px;
+        border-radius: 12px;
+        letter-spacing: 0.5px;
+    }
+
+    .tool-card .desc {
+        color: rgba(220, 210, 195, 0.65);
+        font-size: 14px;
+        line-height: 1.7;
+        margin: 10px 0 16px;
+        flex: 1;
+        font-weight: 300;
+    }
+
+    .tool-card .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-bottom: 16px;
+    }
+
+    .tool-card .tags span {
+        font-size: 11px;
+        padding: 3px 14px;
+        border: 1px solid rgba(212, 184, 120, 0.25);
+        color: #d4c5a0;
+        border-radius: 20px;
+        font-weight: 400;
+        letter-spacing: 0.5px;
+        background: rgba(212, 184, 120, 0.08);
+    }
+
+    /* ===== 次要工具卡片（浅灰细框） ===== */
+    .tool-card.secondary {
+        border-color: rgba(180, 180, 190, 0.08);
+        background: rgba(15, 15, 22, 0.5);
+    }
+
+    .tool-card.secondary:hover {
+        border-color: rgba(200, 180, 150, 0.15);
+    }
+
+    /* ===== 下载按钮 ===== */
+    .tool-card .download-row {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-top: auto;
+    }
+
+    .tool-card .download-btn {
+        flex: 1;
+        min-width: 70px;
+        text-align: center;
+        padding: 10px 14px;
+        border-radius: 12px;
+        background: rgba(200, 180, 150, 0.08);
+        border: 1px solid rgba(200, 180, 150, 0.1);
+        color: rgba(220, 210, 195, 0.6);
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 400;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        letter-spacing: 0.5px;
+    }
+
+    .tool-card .download-btn:hover {
+    background: rgba(212, 184, 120, 0.15);     /* 金色更深 */
+    border-color: rgba(212, 184, 120, 0.35);   /* 边框更亮 */
+    color: #e8ddd0;                            /* 文字亮一点 */
+    box-shadow: 0 4px 20px rgba(212, 184, 120, 0.06);  /* 加极淡金色光晕 */
+}
+
+    .tool-card .download-btn.primary {
+        background: rgba(200, 180, 150, 0.12);
+        border-color: rgba(200, 180, 150, 0.15);
+        color: #d4c5a0;
+        font-weight: 500;
+    }
+
+    .tool-card .download-btn.primary:hover {
+    background: rgba(212, 184, 120, 0.2);      /* 主按钮更深 */
+    border-color: rgba(212, 184, 120, 0.4);
+    color: #e8ddd0;
+    box-shadow: 0 4px 24px rgba(212, 184, 120, 0.1);  /* 光晕更明显 */
+}
+
+    .tool-card .download-btn .size {
+        font-size: 10px;
+        font-weight: 300;
+        opacity: 0.4;
+        margin-left: 2px;
+    }
+
+    .tool-card .download-btn.primary .size {
+        opacity: 0.4;
+    }
+
+    /* ===== 底部 ===== */
+    .footer {
+        text-align: center;
+        color: rgba(200, 180, 150, 0.25);
+        font-size: 13px;
+        padding-top: 28px;
+        border-top: 1px solid rgba(200, 180, 150, 0.06);
+        letter-spacing: 1px;
+        font-weight: 300;
+    }
+
+    .footer a {
+        color: rgba(200, 180, 150, 0.35);
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+
+    .footer a:hover {
+        color: rgba(200, 180, 150, 0.6);
+        text-decoration: underline;
+    }
+
+    /* ===== 响应式 ===== */
+    @media (max-width: 768px) {
+    /* 标题 */
+    .header h1 {
+        font-size: 36px;
+        letter-spacing: 14px;
+    }
+
+    .header p {
+        font-size: 14px;
+        letter-spacing: 4px;
+    }
+
+    .header .stats {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .header .stats strong {
+        font-size: 18px;
+    }
+
+    .header .logo {
+        font-size: 40px;
+    }
+
+    .header .logo svg {
+        width: 40px;
+        height: 40px;
+    }
+
+    /* 卡片：一列 */
+    .tools-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .tool-card {
+        padding: 20px 18px;
+    }
+
+    .tool-card .name {
+        font-size: 17px;
+    }
+
+    .tool-card .desc {
+        font-size: 13px;
+    }
+
+    .tool-card .icon {
+        font-size: 28px;
+    }
+
+    .tool-card .icon svg {
+        width: 28px;
+        height: 28px;
+    }
+
+    /* 下载按钮 */
+    .tool-card .download-btn {
+        font-size: 12px;
+        padding: 8px 12px;
+    }
+
+    /* 底部 */
+    .footer {
+        font-size: 12px;
+    }
+
+    .footer p {
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    body {
+        padding: 16px 12px;
+    }
+}
+
+    /* 超小屏手机 */
+    @media (max-width: 400px) {
+    .header h1 {
+        font-size: 26px;
+        letter-spacing: 8px;
+    }
+    .header p {
+        font-size: 12px;
+        letter-spacing: 3px;
+    }
+    .header .stats span {
+        font-size: 12px;
+    }
+    .header .stats strong {
+        font-size: 16px;
+    }
+    .header .logo {
+        font-size: 32px;
+    }
+    .tool-card {
+        padding: 16px 14px;
+    }
+    .tool-card .name {
+        font-size: 16px;
+    }
+    .tool-card .desc {
+        font-size: 12px;
+    }
+    .tool-card .icon {
+        font-size: 24px;
+    }
+    .tool-card .tags span {
+        font-size: 10px;
+        padding: 2px 10px;
+    }
+    .tool-card .download-btn {
+        font-size: 11px;
+        padding: 6px 10px;
+    }
+    .tool-card .download-btn .size {
+        font-size: 9px;
+    }
+    .footer {
+        font-size: 11px;
+    }
+    body {
+        padding: 12px 8px;
+    }
+}
+</style>
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- ===== 头部 ===== -->
+        <div class="header">
+            <span class="logo"><i data-feather="settings"></i></span>
+            <h1>奉天工具</h1>
+            <p>免费 · 绿色 · 开箱即用</p>
+            <div class="stats">
+                <span>📦 工具总数 <strong>6</strong></span>
+                <span>📥 累计下载 <strong>12.8k</strong></span>
+                <span>⭐ 全部免费</span>
+            </div>
+        </div>
+
+        <!-- ===== 工具列表 ===== -->
+        <div class="tools-grid">
+
+            <!-- ====== 工具1 ====== -->
+            <div class="tool-card">
+                <div class="icon"><i data-feather="file-text"></i></div>
+                <div class="name">
+                    文本工具箱
+                    <span class="version">v2.1</span>
+                </div>
+                <div class="desc">字数统计、关键词提取、文本去重、格式清洗，一站式文本处理。</div>
+                <div class="tags">
+                    <span>#文本处理</span>
+                    <span>#效率工具</span>
+                </div>
+                <div class="download-row">
+                    <!-- <a href="#" class="download-btn primary">🪟 下载 <span class="size">12MB</span></a> -->
+                    <a href="download/文本工具箱.app/" class="download-btn"> 下载 <span class="size">15MB</span></a>
+                </div>
+            </div>
+
+            <!-- ====== 工具2 ====== -->
+            <div class="tool-card">
+                <div class="icon"><i data-feather="image"></i></div>
+                <div class="name">
+                    批量图片处理
+                    <span class="version">v1.8</span>
+                </div>
+                <div class="desc">批量改名，裁剪 水印。</div>
+                <div class="tags">
+                    <span>#图片处理</span>
+                    <span>#改名</span>
+                </div>
+                <div class="download-row">
+                    <!-- <a href="#" class="download-btn primary">🪟 下载 <span class="size">18MB</span></a> -->
+                    <a href="download/图片批量修改.app" class="download-btn"> 下载 <span class="size">40.6MB</span></a>
+                </div>
+            </div>
+
+            <!-- ====== 工具3 ====== -->
+            <div class="tool-card">
+                <div class="icon"><i data-feather="lock"></i></div>
+                <div class="name">
+                    密码管理器
+                    <span class="version">v3.0</span>
+                </div>
+                <div class="desc">生成强密码、加密存储、自动填充，支持指纹解锁。</div>
+                <div class="tags">
+                    <span>#安全</span>
+                    <span>#密码</span>
+                    <span>#加密</span>
+                </div>
+                <div class="download-row">
+                    <!-- <a href="#" class="download-btn primary">🪟 下载 <span class="size">22MB</span></a> -->
+                    <a href="download/密码管理器.app/" class="download-btn"> 下载 <span class="size">25MB</span></a>
+                </div>
+            </div>
+
+            <!-- ====== 工具4 ====== -->
+            <div class="tool-card">
+                <div class="icon"><i data-feather="music"></i></div>
+                <div class="name">
+                    音频转换器
+                    <span class="version">v1.5</span>
+                </div>
+                <div class="desc">MP3/WAV/FLAC/AAC 互转，批量处理，支持音质调节。</div>
+                <div class="tags">
+                    <span>#音频</span>
+                    <span>#格式转换</span>
+                </div>
+                <div class="download-row">
+                    <!-- <a href="#" class="download-btn primary">🪟 下载 <span class="size">28MB</span></a> -->
+                    <a href="#" class="download-btn"> 下载 <span class="size">30MB</span></a>
+                </div>
+            </div>
+
+            <!-- ====== 工具5 ====== -->
+            <div class="tool-card">
+                <div class="icon"><i data-feather="table"></i></div>
+                <div class="name">
+                    表格合并
+                    <span class="version">v2.3</span>
+                </div>
+                <div class="desc">导入 CSV/Excel文件夹，多个表格一键合并成一个表格。</div>
+                <div class="tags">
+                    <span>#合并</span>
+                    <span>#图表</span>
+                    <span>#办公</span>
+                </div>
+                <div class="download-row">
+                    <!-- <a href="#" class="download-btn primary">🪟 下载 <span class="size">35MB</span></a> -->
+                    <a href="download/合并全能工具.app" class="download-btn"> 下载 <span class="size">51.2MB</span></a>
+                </div>
+            </div>
+
+            <!-- ====== 工具6 ====== -->
+            <div class="tool-card">
+                <div class="icon"><i data-feather="folder"></i></div>
+                <div class="name">
+                    文件批量重命名
+                    <span class="version">v1.2</span>
+                </div>
+                <div class="desc">按规则批量重命名文件，支持序号、日期、替换等模式。</div>
+                <div class="tags">
+                    <span>#文件管理</span>
+                    <span>#批量操作</span>
+                </div>
+                <div class="download-row">
+                    <!-- <a href="#" class="download-btn primary">🪟 下载 <span class="size">8MB</span></a> -->
+                    <a href="download/文件批量重命名.app/" class="download-btn"> 下载 <span class="size">10MB</span></a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ===== 底部 ===== -->
+        <div class="footer">
+            <p>
+                🛠️ 所有工具由 PyInstaller 打包 · 无需安装 Python
+            </p>
+            <p style="margin-top:6px;font-size:13px;color:#555;">
+                <a href="#">GitHub</a> · 
+                <a href="#">反馈建议</a> · 
+                <a href="#">更新日志</a>
+            </p>
+        </div>
+
+    </div>
+
+    <script>
+    feather.replace();
+</script>
+
+</body>
+</html>
