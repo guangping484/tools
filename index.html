@@ -421,6 +421,25 @@ var _hmt = _hmt || [];
             </div>
         </div>
 
+        <!-- ===== 公告轮播（细长条） ===== -->
+<div id="noticeBar" style="max-width:600px;margin:0 auto 25px auto;padding:6px 16px;background:rgba(212,184,120,0.06);border:1px solid rgba(212,184,120,0.08);border-radius:20px;text-align:center;overflow:hidden;height:34px;display:flex;align-items:center;justify-content:center;">
+    <span style="color:#d4c5a0;font-weight:600;font-size:12px;flex-shrink:0;">📢</span>
+    <span id="noticeText" style="color:rgba(200,180,150,0.75);margin-left:8px;font-size:13px;transition:opacity 0.5s;"></span>
+</div>
+
+            <!-- 搜索栏 -->
+<div style="text-align:center;margin-bottom:30px;position:relative;display:inline-block;width:100%;max-width:420px;">
+    <input type="text" id="searchInput" placeholder="🔍 搜索工具名称..." 
+           style="width:100%;padding:12px 50px 12px 20px;border-radius:30px;border:1px solid rgba(212,184,120,0.2);background:rgba(0,0,0,0.3);color:#e8ddd0;font-size:15px;outline:none;transition:all 0.3s;" 
+           onkeyup="searchTools()">
+    <span onclick="clearSearch()" 
+          style="position:absolute;right:15px;top:50%;transform:translateY(-50%);cursor:pointer;color:rgba(200,180,150,0.4);font-size:18px;transition:color 0.3s;"
+          onmouseover="this.style.color='#d4c5a0'" 
+          onmouseout="this.style.color='rgba(200,180,150,0.4)'">
+        ✕
+    </span>
+</div>
+
         <!-- ===== 工具列表 ===== -->
         <div class="tools-grid">
 
@@ -557,6 +576,10 @@ var _hmt = _hmt || [];
             <p style="color:rgba(200,180,150,0.4);font-size:12px;margin-top:6px;">支付宝</p>
         </div>
     </div>
+
+    <p style="color:rgba(200,180,150,0.3);font-size:12px;margin-top:16px;">
+    ⏱ 已运行 <span id="runTime"></span>
+</p>
     
     <p style="color:rgba(200,180,150,0.2);font-size:11px;margin-top:14px;">自愿打赏，感谢支持 🙏</p>
 </div>
@@ -577,6 +600,107 @@ var _hmt = _hmt || [];
 
     <script>
     feather.replace();
+</script>
+
+    <!-- 回到顶部按钮 -->
+    <button onclick="scrollToTop()" id="topBtn" style="display:none;position:fixed;bottom:80px;right:20px;z-index:999;background:#d4c5a0;color:#0a0a0f;border:none;border-radius:50%;width:50px;height:50px;font-size:24px;cursor:pointer;box-shadow:0 4px 15px rgba(0,0,0,0.3);transition:all 0.3s;">
+        ↑
+    </button>
+
+    <script>
+        // 滚动时显示/隐藏按钮
+        window.onscroll = function() {
+            var btn = document.getElementById('topBtn');
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                btn.style.display = 'block';
+            } else {
+                btn.style.display = 'none';
+            }
+        };
+
+        // 点击回到顶部
+        function scrollToTop() {
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+    </script>
+
+    <script>
+    // 网站运行时间
+    function updateRunTime() {
+        const startDate = new Date('2026-06-23T00:00:00');
+        const now = new Date();
+        const diff = now - startDate;
+
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+        document.getElementById('runTime').textContent = 
+            days + ' 天 ' + hours + ' 时 ' + minutes + ' 分 ' + seconds + ' 秒';
+    }
+
+    updateRunTime();
+    setInterval(updateRunTime, 1000);
+</script>
+
+<script>
+    // 工具搜索功能
+function searchTools() {
+    var input = document.getElementById('searchInput');
+    var filter = input.value.toLowerCase();
+    var cards = document.querySelectorAll('.tool-card');
+
+    cards.forEach(function(card) {
+        var name = card.querySelector('.name')?.textContent?.toLowerCase() || '';
+        var desc = card.querySelector('.desc')?.textContent?.toLowerCase() || '';
+        var tags = card.querySelector('.tags')?.textContent?.toLowerCase() || '';
+
+        if (name.includes(filter) || desc.includes(filter) || tags.includes(filter)) {
+            card.style.display = '';
+        } else {
+            card.style.display = 'none';
+        }
+    });
+}
+
+// 清空搜索
+function clearSearch() {
+    document.getElementById('searchInput').value = '';
+    searchTools();
+}
+
+// ===== 公告轮播 =====
+var notices = [
+    "🎉 新工具上线啦！欢迎体验",
+    "🎵 已新增「音频转换器」在线工具",
+    "📦 批量文件重命名工具已更新",
+    "🔐 密码管理器 v2.0 已上线",
+    "💡 有任何建议欢迎反馈给我们"
+];
+
+var noticeIndex = 0;
+var noticeEl = document.getElementById('noticeText');
+
+function showNotice() {
+    if (!noticeEl) return;
+    noticeEl.style.opacity = '0';
+    setTimeout(function() {
+        noticeEl.textContent = notices[noticeIndex];
+        noticeEl.style.opacity = '1';
+    }, 300);
+}
+
+function nextNotice() {
+    noticeIndex = (noticeIndex + 1) % notices.length;
+    showNotice();
+}
+
+// 初始化第一条公告
+showNotice();
+
+// 每 4 秒切换一条
+setInterval(nextNotice, 4000);
 </script>
 
 </body>
