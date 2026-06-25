@@ -411,7 +411,7 @@ var _hmt = _hmt || [];
 
         <!-- ===== 头部 ===== -->
         <div class="header">
-            <span class="logo"><i data-feather="settings"></i></span>
+            <img src="logo.png" alt="logo" style="position:absolute;top:15px;left:15px;height:44px;width:44px;border-radius:10px;border:1.5px solid rgba(212,184,120,0.25);box-shadow:0 0 20px rgba(212,184,120,0.06);">
             <h1>奉天工具</h1>
             <p>免费 · 绿色 · 开箱即用</p>
             <div class="stats">
@@ -443,63 +443,129 @@ var _hmt = _hmt || [];
         <!-- ===== 工具列表 ===== -->
         <div class="tools-grid">
 
-            <!-- ====== 工具1 ====== -->
-            <div class="tool-card">
-                <div class="icon"><i data-feather="file-text"></i></div>
-                <div class="name">
-                    文本工具箱
-                    <span class="version">v2.1</span>
-                </div>
-                <div class="desc">字数统计、关键词提取、文本去重、格式清洗，一站式文本处理。</div>
-                <div class="tags">
-                    <span>#文本处理</span>
-                    <span>#效率工具</span>
-                </div>
-                <div class="download-row">
-                    <!-- <a href="#" class="download-btn primary">🪟 下载 <span class="size">12MB</span></a> -->
-                    <a href="https://wwalp.lanzout.com/ikI2B3ss8nlc" class="download-btn"> 下载 <span class="size">10.4MB</span></a>
-                    
-                </div>
-            </div>
+            <!-- 工具1：文本工具箱（在线版） -->
+<div class="tool-card">
+    <div class="icon"><i data-feather="file-text"></i></div>
+    <div class="name">
+        文本工具箱
+        <span class="version">在线版</span>
+    </div>
+    <div class="desc">字数统计、文本去重、格式清理，一站式文本处理。</div>
+    <div class="tags">
+        <span>#文本处理</span>
+        <span>#效率工具</span>
+    </div>
 
-            <!-- ====== 工具2 ====== -->
-            <div class="tool-card">
-                <div class="icon"><i data-feather="image"></i></div>
-                <div class="name">
-                    批量图片处理
-                    <span class="version">v1.8</span>
-                </div>
-                <div class="desc">批量改名，裁剪 水印。</div>
-                <div class="tags">
-                    <span>#图片处理</span>
-                    <span>#改名</span>
-                </div>
-                <div class="download-row">
-                    <!-- <a href="#" class="download-btn primary">🪟 下载 <span class="size">18MB</span></a> -->
-                    <a href="https://wwalp.lanzout.com/iRxuv3ss8n7i" class="download-btn"> 下载 <span class="size">15.5MB</span></a>
-                    
-                </div>
-            </div>
+    <!-- 在线工具功能区 -->
+    <div class="tool-area">
+        <textarea id="textInput" placeholder="输入或粘贴文字..." rows="5" style="width:100%;padding:12px;border-radius:10px;border:1px solid rgba(212,184,120,0.2);background:rgba(0,0,0,0.3);color:#e8ddd0;font-size:14px;outline:none;resize:vertical;font-family:inherit;"></textarea>
+        
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin:12px 0;">
+            <button onclick="countWords()" style="padding:8px 18px;background:#d4c5a0;color:#0a0a0f;border:none;border-radius:8px;cursor:pointer;font-weight:600;">📊 字数统计</button>
+            <button onclick="dedupText()" style="padding:8px 18px;background:rgba(255,255,255,0.05);color:#d4c5a0;border:1px solid rgba(212,184,120,0.15);border-radius:8px;cursor:pointer;">🔍 去重</button>
+            <button onclick="cleanText()" style="padding:8px 18px;background:rgba(255,255,255,0.05);color:#d4c5a0;border:1px solid rgba(212,184,120,0.15);border-radius:8px;cursor:pointer;">🧹 清理格式</button>
+            <button onclick="clearText()" style="padding:8px 18px;background:rgba(255,255,255,0.05);color:#d4c5a0;border:1px solid rgba(212,184,120,0.15);border-radius:8px;cursor:pointer;">🗑️ 清空</button>
+        </div>
 
-            <!-- ====== 工具3 ====== -->
-            <div class="tool-card">
-                <div class="icon"><i data-feather="lock"></i></div>
-                <div class="name">
-                    密码管理器
-                    <span class="version">v3.0</span>
-                </div>
-                <div class="desc">生成强密码、加密存储、自动填充，支持指纹解锁。</div>
-                <div class="tags">
-                    <span>#安全</span>
-                    <span>#密码</span>
-                    <span>#加密</span>
-                </div>
-                <div class="download-row">
-                    <!-- <a href="#" class="download-btn primary">🪟 下载 <span class="size">22MB</span></a> -->
-                    <a href="https://wwalp.lanzout.com/iJWii3ss8mqb" class="download-btn"> 下载 <span class="size">10.7MB</span></a>
-                    
-                </div>
-            </div>
+        <div id="textResult" style="padding:12px;background:rgba(0,0,0,0.2);border-radius:10px;min-height:50px;font-size:14px;color:rgba(200,180,150,0.6);">
+            💡 输入文字后点击按钮
+        </div>
+    </div>
+
+    <!-- 下载按钮（保留） -->
+    <div class="download-row">
+        <a href="https://walmart.lanzout.com/ikI2B3ss8nlc" target="_blank" class="download-btn primary"> 下载 <span class="size">10.4MB</span></a>
+    </div>
+</div>
+
+            <!-- 图片格式转换（在线版） -->
+<div class="tool-card">
+    <div class="icon"><i data-feather="image"></i></div>
+    <div class="name">
+        批量图片处理
+        <span class="version">在线版</span>
+    </div>
+    <div class="desc">一键转换 PNG / JPG / WebP 格式，免费使用，更多功能下方下载app。</div>
+    <div class="tags">
+        <span>#图片</span>
+        <span>#格式转换</span>
+    </div>
+
+    <div class="tool-area">
+        <input type="file" id="imgInput" accept="image/*" style="width:100%;padding:12px;border-radius:10px;border:2px dashed rgba(212,184,120,0.2);background:rgba(0,0,0,0.2);color:#d4c5a0;cursor:pointer;font-size:14px;">
+        
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin:12px 0;align-items:center;">
+            <label style="color:#d4c5a0;font-size:14px;">转换格式：</label>
+            <select id="imgFormat" style="padding:8px 16px;border-radius:8px;border:1px solid rgba(212,184,120,0.2);background:rgba(0,0,0,0.3);color:#e8ddd0;outline:none;font-size:14px;">
+                <option value="image/png">PNG</option>
+                <option value="image/jpeg">JPG</option>
+                <option value="image/webp">WebP</option>
+            </select>
+            <button onclick="convertImage()" style="padding:8px 24px;background:#d4c5a0;color:#0a0a0f;border:none;border-radius:8px;cursor:pointer;font-weight:600;">🔄 转换</button>
+            <button onclick="clearImage()" style="padding:8px 16px;background:rgba(255,255,255,0.05);color:#d4c5a0;border:1px solid rgba(212,184,120,0.15);border-radius:8px;cursor:pointer;">🗑️ 清空</button>
+        </div>
+
+        <div id="imgResult" style="padding:16px;background:rgba(0,0,0,0.2);border-radius:10px;min-height:80px;text-align:center;display:flex;align-items:center;justify-content:center;color:rgba(200,180,150,0.4);font-size:14px;">
+            📤 选择图片后点击"转换"
+        </div>
+    </div>
+
+    <!-- 下载按钮（保留） -->
+    <div class="download-row">
+        <a href="https://wwalp.lanzout.com/iRxuv3ss8n7i" class="download-btn primary"> 下载 <span class="size">15.5MB</span></a>
+    </div>
+</div>
+
+            <!-- 密码管理器（在线版） -->
+<div class="tool-card">
+    <div class="icon"><i data-feather="lock"></i></div>
+    <div class="name">
+        密码管理器
+        <span class="version">在线版</span>
+    </div>
+    <div class="desc">生成强密码、密码强度检测，一键复制使用。</div>
+    <div class="tags">
+        <span>#安全</span>
+        <span>#密码</span>
+        <span>#加密</span>
+    </div>
+
+    <!-- 在线工具功能区 -->
+    <div class="tool-area">
+        <!-- 生成密码 -->
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:10px;align-items:center;">
+            <label style="color:#d4c5a0;font-size:13px;">密码长度</label>
+            <input type="number" id="pwdLength" value="16" min="6" max="64" style="width:60px;padding:6px 10px;border-radius:8px;border:1px solid rgba(212,184,120,0.2);background:rgba(0,0,0,0.3);color:#e8ddd0;text-align:center;outline:none;">
+            
+            <label style="color:#d4c5a0;font-size:13px;margin-left:10px;">生成数量</label>
+            <input type="number" id="pwdCount" value="1" min="1" max="20" style="width:60px;padding:6px 10px;border-radius:8px;border:1px solid rgba(212,184,120,0.2);background:rgba(0,0,0,0.3);color:#e8ddd0;text-align:center;outline:none;">
+            
+            <button onclick="generatePasswords()" style="padding:8px 20px;background:#d4c5a0;color:#0a0a0f;border:none;border-radius:8px;cursor:pointer;font-weight:600;">⚡ 生成密码</button>
+        </div>
+
+        <!-- 密码显示 -->
+        <textarea id="pwdDisplay" rows="3" readonly style="width:100%;padding:12px;border-radius:10px;border:1px solid rgba(212,184,120,0.2);background:rgba(0,0,0,0.3);color:#e8ddd0;font-size:16px;font-family:monospace;outline:none;resize:vertical;">点击"生成密码"</textarea>
+
+        <!-- 操作按钮 -->
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin:10px 0;">
+            <button onclick="copyPasswords()" style="padding:8px 18px;background:rgba(255,255,255,0.05);color:#d4c5a0;border:1px solid rgba(212,184,120,0.15);border-radius:8px;cursor:pointer;">📋 复制密码</button>
+            <button onclick="clearPasswords()" style="padding:8px 18px;background:rgba(255,255,255,0.05);color:#d4c5a0;border:1px solid rgba(212,184,120,0.15);border-radius:8px;cursor:pointer;">🧹 清空</button>
+        </div>
+
+        <!-- 密码强度检测 -->
+        <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;padding-top:10px;border-top:1px solid rgba(212,184,120,0.08);">
+            <span style="color:#d4c5a0;font-size:13px;">🔍 强度检测</span>
+            <input type="text" id="strengthInput" placeholder="输入要检测的密码..." style="flex:1;min-width:150px;padding:8px 14px;border-radius:8px;border:1px solid rgba(212,184,120,0.2);background:rgba(0,0,0,0.3);color:#e8ddd0;outline:none;">
+            <button onclick="checkStrength()" style="padding:8px 16px;background:rgba(255,255,255,0.05);color:#d4c5a0;border:1px solid rgba(212,184,120,0.15);border-radius:8px;cursor:pointer;">检测</button>
+            <span id="strengthResult" style="font-weight:bold;font-size:15px;min-width:50px;"></span>
+        </div>
+    </div>
+
+    <!-- 下载按钮 -->
+    <div class="download-row">
+        <a href="https://wwalp.lanzout.com/iJWii3ss8mqb" class="download-btn primary"> 下载 <span class="size">10.7MB</span></a>
+    </div>
+</div>
 
             <!-- ====== 工具4 ====== -->
             <div class="tool-card">
@@ -701,6 +767,207 @@ showNotice();
 
 // 每 4 秒切换一条
 setInterval(nextNotice, 4000);
+</script>
+
+<script>
+// ===== 文本工具箱功能 =====
+function countWords() {
+    var text = document.getElementById('textInput').value;
+    var resultBox = document.getElementById('textResult');
+    
+    if (text.trim() === '') {
+        resultBox.innerHTML = '⚠️ 请先输入文字';
+        return;
+    }
+    
+    var charCount = text.length;
+    var wordCount = text.trim().split(/\s+/).length;
+    var chineseCount = (text.match(/[\u4e00-\u9fa5]/g) || []).length;
+    var englishCount = (text.match(/[a-zA-Z]/g) || []).length;
+    var digitCount = (text.match(/[0-9]/g) || []).length;
+
+    resultBox.innerHTML = '📊 统计结果：' +
+        '总字符数：<strong>' + charCount + '</strong> | ' +
+        '单词数：<strong>' + wordCount + '</strong> | ' +
+        '中文字符：<strong>' + chineseCount + '</strong> | ' +
+        '英文字符：<strong>' + englishCount + '</strong> | ' +
+        '数字字符：<strong>' + digitCount + '</strong>';
+}
+
+function dedupText() {
+    var textarea = document.getElementById('textInput');
+    var resultBox = document.getElementById('textResult');
+    var text = textarea.value;
+    
+    if (text.trim() === '') {
+        resultBox.innerHTML = '⚠️ 请先输入文字';
+        return;
+    }
+    
+    var lines = text.split('\n');
+    var seen = new Set();
+    var result = [];
+    
+    for (var i = 0; i < lines.length; i++) {
+        var line = lines[i].trim();
+        if (line && !seen.has(line)) {
+            seen.add(line);
+            result.push(lines[i]);
+        }
+    }
+    
+    textarea.value = result.join('\n');
+    resultBox.innerHTML = '✅ 去重完成！共保留 <strong>' + result.length + '</strong> 行';
+}
+
+function cleanText() {
+    var textarea = document.getElementById('textInput');
+    var resultBox = document.getElementById('textResult');
+    var text = textarea.value;
+    
+    if (text.trim() === '') {
+        resultBox.innerHTML = '⚠️ 请先输入文字';
+        return;
+    }
+    
+    var cleaned = text.replace(/\s+/g, ' ').trim();
+    textarea.value = cleaned;
+    resultBox.innerHTML = '✅ 格式清理完成！';
+}
+
+function clearText() {
+    document.getElementById('textInput').value = '';
+    document.getElementById('textResult').innerHTML = '💡 已清空';
+}
+</script>
+
+<script>
+// ===== 密码管理器功能 =====
+function generatePasswords() {
+    var length = parseInt(document.getElementById('pwdLength').value) || 16;
+    var count = parseInt(document.getElementById('pwdCount').value) || 1;
+    
+    if (length < 6) length = 6;
+    if (length > 64) length = 64;
+    if (count < 1) count = 1;
+    if (count > 20) count = 20;
+    
+    var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+-=';
+    var passwords = [];
+    
+    for (var c = 0; c < count; c++) {
+        var pwd = '';
+        // 确保至少包含大写、小写、数字、特殊字符
+        pwd += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'[Math.floor(Math.random() * 26)];
+        pwd += 'abcdefghijklmnopqrstuvwxyz'[Math.floor(Math.random() * 26)];
+        pwd += '0123456789'[Math.floor(Math.random() * 10)];
+        pwd += '!@#$%^&*()_+-='[Math.floor(Math.random() * 14)];
+        
+        for (var i = pwd.length; i < length; i++) {
+            pwd += chars[Math.floor(Math.random() * chars.length)];
+        }
+        // 打乱
+        pwd = pwd.split('').sort(function() { return Math.random() - 0.5; }).join('');
+        passwords.push(pwd);
+    }
+    
+    document.getElementById('pwdDisplay').value = passwords.join('\n');
+}
+
+function copyPasswords() {
+    var text = document.getElementById('pwdDisplay').value;
+    if (!text || text === '点击"生成密码"') {
+        alert('请先生成密码');
+        return;
+    }
+    navigator.clipboard.writeText(text).then(function() {
+        alert('✅ 密码已复制到剪贴板！');
+    }).catch(function() {
+        document.getElementById('pwdDisplay').select();
+        document.execCommand('copy');
+        alert('✅ 密码已复制到剪贴板！');
+    });
+}
+
+function clearPasswords() {
+    document.getElementById('pwdDisplay').value = '点击"生成密码"';
+    document.getElementById('strengthInput').value = '';
+    document.getElementById('strengthResult').textContent = '';
+    document.getElementById('strengthResult').style.color = '';
+}
+
+function checkStrength() {
+    var pwd = document.getElementById('strengthInput').value;
+    var result = document.getElementById('strengthResult');
+    
+    if (!pwd.trim()) {
+        result.textContent = '⚠️ 请输入密码';
+        result.style.color = '#ff6b6b';
+        return;
+    }
+    
+    var score = 0;
+    if (pwd.length >= 8) score++;
+    if (pwd.length >= 12) score++;
+    if (/[a-z]/.test(pwd) && /[A-Z]/.test(pwd)) score++;
+    if (/[0-9]/.test(pwd)) score++;
+    if (/[!@#$%^&*()_+-=]/.test(pwd)) score++;
+    
+    if (score <= 2) {
+        result.textContent = '🔴 弱';
+        result.style.color = '#ff6b6b';
+    } else if (score <= 4) {
+        result.textContent = '🟡 中';
+        result.style.color = '#ffd93d';
+    } else {
+        result.textContent = '🟢 强';
+        result.style.color = '#6bcb77';
+    }
+}
+</script>
+
+<script>
+// ===== 图片格式转换 =====
+function convertImage() {
+    var fileInput = document.getElementById('imgInput');
+    var format = document.getElementById('imgFormat').value;
+    var result = document.getElementById('imgResult');
+    
+    if (!fileInput.files || fileInput.files.length === 0) {
+        result.innerHTML = '⚠️ 请先选择一张图片';
+        return;
+    }
+    
+    var file = fileInput.files[0];
+    var reader = new FileReader();
+    
+    reader.onload = function(e) {
+        var img = new Image();
+        img.onload = function() {
+            var canvas = document.createElement('canvas');
+            canvas.width = img.width;
+            canvas.height = img.height;
+            var ctx = canvas.getContext('2d');
+            ctx.drawImage(img, 0, 0);
+            
+            var formatName = format.split('/')[1].toUpperCase();
+            var ext = formatName.toLowerCase();
+            var dataUrl = canvas.toDataURL(format, 0.92);
+            var sizeKB = Math.round(dataUrl.length * 3 / 4 / 1024);
+            
+            result.innerHTML = 
+                '<img src="' + dataUrl + '" style="max-width:200px;max-height:150px;border-radius:8px;margin-bottom:10px;"><br>' +
+                '<a href="' + dataUrl + '" download="converted.' + ext + '" style="color:#d4c5a0;font-size:14px;font-weight:600;">📥 下载转换后的图片 (.' + formatName + ' ' + sizeKB + 'KB)</a>';
+        };
+        img.src = e.target.result;
+    };
+    reader.readAsDataURL(file);
+}
+
+function clearImage() {
+    document.getElementById('imgInput').value = '';
+    document.getElementById('imgResult').innerHTML = '📤 选择图片后点击"转换"';
+}
 </script>
 
 </body>
