@@ -409,6 +409,195 @@
     background: rgba(255, 255, 255, 0.2) !important;
     transform: scale(0.96);
 }
+
+/* ===== 自动浅色模式（白底黑字 + 金色点缀） ===== */
+@media (prefers-color-scheme: light) {
+
+    /* ===== 页面基础 ===== */
+    body {
+        background: #ffffff !important;
+        color: #000000 !important;
+    }
+
+    /* ===== 标题区域 ===== */
+    body .header h1 {
+        color: #000000 !important;
+        letter-spacing: 8px !important;
+        text-shadow: none !important;
+    }
+    body .header p {
+        color: #000000 !important;
+    }
+    body .header {
+        border-bottom-color: #e0e0e0 !important;
+    }
+    body .header button {
+        background: #f0f0f0 !important;
+        border-color: #d0d0d0 !important;
+        color: #000000 !important;
+    }
+    body .header button:hover {
+        background: #e5e5e5 !important;
+        color: #b8a580 !important;
+    }
+
+    /* ===== 统计栏 ===== */
+    body .stats span {
+        color: #000000 !important;
+    }
+    body .stats strong {
+        color: #000000 !important;
+    }
+
+    /* ===== 工具卡片 ===== */
+    body .tool-card {
+        background: #f8f8f8 !important;
+        border-color: #e0e0e0 !important;
+    }
+    body .tool-card:hover {
+        background: #f0f0f0 !important;
+        border-color: #b8a580 !important;
+        box-shadow: 0 8px 30px rgba(0,0,0,0.06) !important;
+    }
+    body .tool-card .name {
+        color: #000000 !important;
+    }
+    body .tool-card .desc {
+        color: #000000 !important;
+    }
+    body .tool-card .version {
+        color: #666666 !important;
+        border-color: #e0e0e0 !important;
+    }
+    body .tool-card .icon {
+        color: #b8a580 !important;
+    }
+
+    /* ===== 标签 ===== */
+    body .tags span {
+        background: #f0f0f0 !important;
+        color: #000000 !important;
+        border-color: #e0e0e0 !important;
+    }
+
+    /* ===== 工具功能区域 ===== */
+    body .tool-area {
+        background: #f5f5f5 !important;
+        border-color: #e0e0e0 !important;
+    }
+    body .tool-area textarea,
+    body .tool-area input,
+    body .tool-area select {
+        background: #ffffff !important;
+        color: #000000 !important;
+        border-color: #d0d0d0 !important;
+    }
+    body .tool-area textarea:focus,
+    body .tool-area input:focus {
+        border-color: #b8a580 !important;
+    }
+    body .tool-area textarea::placeholder {
+        color: #888888 !important;
+    }
+    body .tool-area button {
+        color: #000000 !important;
+        background: rgba(0,0,0,0.06) !important;
+        border-color: #d0d0d0 !important;
+    }
+    body .tool-area button:hover {
+        background: rgba(0,0,0,0.12) !important;
+        border-color: #b8a580 !important;
+    }
+
+    /* ===== 工具结果框 ===== */
+    body .tool-result {
+        background: #f5f5f5 !important;
+        color: #000000 !important;
+        border-color: #e0e0e0 !important;
+    }
+    body .tool-result strong {
+        color: #000000 !important;
+    }
+
+    /* ===== 所有输入框/结果框（兜底） ===== */
+    body [id$="Input"],
+    body [id$="Result"],
+    body [id$="Display"] {
+        color: #000000 !important;
+    }
+
+    /* ===== 公告栏 ===== */
+    body #noticeBar {
+        background: #f5f5f5 !important;
+        border-color: #e0e0e0 !important;
+    }
+    body #noticeText {
+        color: #000000 !important;
+    }
+    body #noticeBar span:first-child {
+        color: #b8a580 !important;
+    }
+
+    /* ===== 搜索栏 ===== */
+    body #searchInput {
+        background: #ffffff !important;
+        color: #000000 !important;
+        border-color: #d0d0d0 !important;
+    }
+    body #searchInput::placeholder {
+        color: #888888 !important;
+    }
+
+    /* ===== 下载按钮 ===== */
+    body .download-btn {
+        background: #f0f0f0 !important;
+        color: #000000 !important;
+        border-color: #d0d0d0 !important;
+    }
+    body .download-btn:hover {
+        background: #e5e5e5 !important;
+        color: #000000 !important;
+        border-color: #b8a580 !important;
+    }
+    body .download-btn.primary {
+        background: #b8a580 !important;
+        color: #ffffff !important;
+        border-color: #b8a580 !important;
+    }
+    body .download-btn.primary:hover {
+        background: #a89570 !important;
+        border-color: #a89570 !important;
+    }
+
+    /* ===== 底部 ===== */
+    body .footer {
+        color: #666666 !important;
+        border-top-color: #e0e0e0 !important;
+    }
+    body .footer a {
+        color: #000000 !important;
+    }
+    body .footer a:hover {
+        color: #b8a580 !important;
+    }
+    body .footer p,
+    body .footer span,
+    body .footer div,
+    body .footer * {
+        color: #000000 !important;
+    }
+
+    /* ===== 打赏区文字 ===== */
+    body .container p {
+        color: #000000 !important;
+    }
+
+    /* ===== 运行时间 ===== */
+    body #runTime {
+        color: #000000 !important;
+    }
+
+}
 </style>
 
 <script>
@@ -486,7 +675,7 @@ var _hmt = _hmt || [];
             <button onclick="clearText()" style="padding:8px 18px;background:rgba(255,255,255,0.05);color:#d4c5a0;border:1px solid rgba(212,184,120,0.15);border-radius:8px;cursor:pointer;">🗑️ 清空</button>
         </div>
 
-        <div id="textResult" style="padding:12px;background:rgba(0,0,0,0.2);border-radius:10px;min-height:50px;font-size:14px;color:rgba(200,180,150,0.6);">
+        <div id="textResult" style="padding:12px;background:rgba(0,0,0,0.2);border-radius:10px;min-height:50px;font-size:14px;color:#d4c5a0;">
             💡 输入文字后点击按钮
         </div>
     </div>
@@ -524,7 +713,7 @@ var _hmt = _hmt || [];
             <button onclick="clearImage()" style="padding:8px 16px;background:rgba(255,255,255,0.05);color:#d4c5a0;border:1px solid rgba(212,184,120,0.15);border-radius:8px;cursor:pointer;">🗑️ 清空</button>
         </div>
 
-        <div id="imgResult" style="padding:16px;background:rgba(0,0,0,0.2);border-radius:10px;min-height:80px;text-align:center;display:flex;align-items:center;justify-content:center;color:rgba(200,180,150,0.4);font-size:14px;">
+        <div id="imgResult" style="padding:16px;background:rgba(0,0,0,0.2);border-radius:10px;min-height:80px;text-align:center;display:flex;align-items:center;justify-content:center;color:#d4c5a0;font-size:14px;">
             📤 选择图片后点击"转换"
         </div>
     </div>
@@ -664,7 +853,7 @@ var _hmt = _hmt || [];
             <button onclick="calcDate()" style="padding:8px 20px;background:rgba(255,255,255,0.05);color:#d4c5a0;border:1px solid rgba(212,184,120,0.15);border-radius:8px;cursor:pointer;">🧮 计算</button>
         </div>
 
-        <div id="dateResult" style="margin-top:10px;padding:12px;background:rgba(0,0,0,0.2);border-radius:8px;min-height:40px;color:rgba(200,180,150,0.6);font-size:14px;">
+        <div id="dateResult" style="margin-top:10px;padding:12px;background:rgba(0,0,0,0.2);border-radius:8px;min-height:40px;color:#d4c5a0;font-size:14px;">
             💡 选择日期点击计算
         </div>
 
@@ -705,7 +894,7 @@ var _hmt = _hmt || [];
             <button onclick="clearLottery()" style="padding:8px 16px;background:rgba(255,255,255,0.05);color:#d4c5a0;border:1px solid rgba(212,184,120,0.15);border-radius:8px;cursor:pointer;">🗑️ 清空</button>
         </div>
 
-        <div id="lotteryResult" style="padding:16px;background:rgba(0,0,0,0.2);border-radius:10px;min-height:60px;text-align:center;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:8px;font-size:24px;font-weight:700;color:#d4c5a0;">
+        <div id="lotteryResult" style="padding:16px;background:rgba(0,0,0,0.2);border-radius:10px;min-height:60px;text-align:center;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:8px;font-size:14px;font-weight:700;color:#d4c5a0;">
             💡 输入名单后点击抽奖
         </div>
     </div>
@@ -739,7 +928,7 @@ var _hmt = _hmt || [];
             <button onclick="clearCase()" style="padding:8px 16px;background:rgba(255,255,255,0.05);color:#d4c5a0;border:1px solid rgba(212,184,120,0.15);border-radius:8px;cursor:pointer;">🗑️ 清空</button>
         </div>
 
-        <div id="caseResult" style="padding:12px;background:rgba(0,0,0,0.2);border-radius:10px;min-height:50px;font-size:14px;color:rgba(200,180,150,0.6);word-break:break-all;">
+        <div id="caseResult" style="padding:12px;background:rgba(0,0,0,0.2);border-radius:10px;min-height:50px;font-size:14px;color:#d4c5a0;word-break:break-all;">
             💡 输入文字后点击上方按钮
         </div>
     </div>
