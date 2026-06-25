@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>奉天程序</title>
-    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/feather-icons/4.29.1/feather.min.js"></script>
     <style>
     * {
         margin: 0;
@@ -392,6 +392,23 @@
         padding: 12px 8px;
     }
 }
+
+/* 按钮反馈 */
+.tool-area button {
+    transition: all 0.2s ease;
+}
+
+/* 鼠标悬停 */
+.tool-area button:hover {
+    background: rgba(255, 255, 255, 0.12) !important;
+    transform: scale(1.02);
+}
+
+/* 鼠标点击 */
+.tool-area button:active {
+    background: rgba(255, 255, 255, 0.2) !important;
+    transform: scale(0.96);
+}
 </style>
 
 <script>
@@ -412,11 +429,13 @@ var _hmt = _hmt || [];
         <!-- ===== 头部 ===== -->
         <div class="header">
             <img src="logo.png" alt="logo" style="position:absolute;top:15px;left:15px;height:44px;width:44px;border-radius:10px;border:1.5px solid rgba(212,184,120,0.25);box-shadow:0 0 20px rgba(212,184,120,0.06);">
+            <button onclick="shareSite()" style="position:absolute;right:20px;top:15px;background:rgba(255,255,255,0.05);border:1px solid rgba(212,184,120,0.15);color:#d4c5a0;padding:6px 16px;border-radius:8px;cursor:pointer;font-size:13px;">🔗 分享</button>
             <h1>奉天工具</h1>
             <p>免费 · 绿色 · 开箱即用</p>
             <div class="stats">
-                <span>📦 工具总数 <strong>6</strong></span>
-                <span>📥 累计下载 <strong>12.8k</strong></span>
+                <span>📦 工具总数 <strong>9</strong></span>
+                <span>📥 累计下载 <strong>1.8k</strong></span>
+                <span>累计使用 <strong style="color:#d4c5a0;">5.8k</strong></span>
                 <span>⭐ 全部免费</span>
             </div>
         </div>
@@ -461,7 +480,7 @@ var _hmt = _hmt || [];
         <textarea id="textInput" placeholder="输入或粘贴文字..." rows="5" style="width:100%;padding:12px;border-radius:10px;border:1px solid rgba(212,184,120,0.2);background:rgba(0,0,0,0.3);color:#e8ddd0;font-size:14px;outline:none;resize:vertical;font-family:inherit;"></textarea>
         
         <div style="display:flex;gap:8px;flex-wrap:wrap;margin:12px 0;">
-            <button onclick="countWords()" style="padding:8px 18px;background:#d4c5a0;color:#0a0a0f;border:none;border-radius:8px;cursor:pointer;font-weight:600;">📊 字数统计</button>
+            <button onclick="countWords()" style="padding:8px 18px;background:rgba(255,255,255,0.05);color:#d4c5a0;border:1px solid rgba(212,184,120,0.15);border-radius:8px;cursor:pointer;font-size:14px;">📊 字数统计</button>
             <button onclick="dedupText()" style="padding:8px 18px;background:rgba(255,255,255,0.05);color:#d4c5a0;border:1px solid rgba(212,184,120,0.15);border-radius:8px;cursor:pointer;">🔍 去重</button>
             <button onclick="cleanText()" style="padding:8px 18px;background:rgba(255,255,255,0.05);color:#d4c5a0;border:1px solid rgba(212,184,120,0.15);border-radius:8px;cursor:pointer;">🧹 清理格式</button>
             <button onclick="clearText()" style="padding:8px 18px;background:rgba(255,255,255,0.05);color:#d4c5a0;border:1px solid rgba(212,184,120,0.15);border-radius:8px;cursor:pointer;">🗑️ 清空</button>
@@ -501,7 +520,7 @@ var _hmt = _hmt || [];
                 <option value="image/jpeg">JPG</option>
                 <option value="image/webp">WebP</option>
             </select>
-            <button onclick="convertImage()" style="padding:8px 24px;background:#d4c5a0;color:#0a0a0f;border:none;border-radius:8px;cursor:pointer;font-weight:600;">🔄 转换</button>
+            <button onclick="convertImage()" style="padding:8px 18px;background:rgba(255,255,255,0.05);color:#d4c5a0;border:1px solid rgba(212,184,120,0.15);border-radius:8px;cursor:pointer;font-size:14px;">🔄 转换</button>
             <button onclick="clearImage()" style="padding:8px 16px;background:rgba(255,255,255,0.05);color:#d4c5a0;border:1px solid rgba(212,184,120,0.15);border-radius:8px;cursor:pointer;">🗑️ 清空</button>
         </div>
 
@@ -540,7 +559,7 @@ var _hmt = _hmt || [];
             <label style="color:#d4c5a0;font-size:13px;margin-left:10px;">生成数量</label>
             <input type="number" id="pwdCount" value="1" min="1" max="20" style="width:60px;padding:6px 10px;border-radius:8px;border:1px solid rgba(212,184,120,0.2);background:rgba(0,0,0,0.3);color:#e8ddd0;text-align:center;outline:none;">
             
-            <button onclick="generatePasswords()" style="padding:8px 20px;background:#d4c5a0;color:#0a0a0f;border:none;border-radius:8px;cursor:pointer;font-weight:600;">⚡ 生成密码</button>
+            <button onclick="generatePasswords()" style="padding:8px 18px;background:rgba(255,255,255,0.05);color:#d4c5a0;border:1px solid rgba(212,184,120,0.15);border-radius:8px;cursor:pointer;font-size:14px;">⚡ 生成密码</button>
         </div>
 
         <!-- 密码显示 -->
@@ -599,7 +618,7 @@ var _hmt = _hmt || [];
                 </div>
                 <div class="download-row">
                     <!-- <a href="#" class="download-btn primary">🪟 下载 <span class="size">35MB</span></a> -->
-                    <a href="https://wwalp.lanzout.com/ic5hB3ss8m7c" class="download-btn"> 下载 <span class="size">37.9MB</span></a>
+                    <a href="https://wwalp.lanzout.com/ic5hB3ss8m7c" class="download-btn primary"> 下载 <span class="size">37.9MB</span></a>
                     
                 </div>
             </div>
@@ -618,10 +637,117 @@ var _hmt = _hmt || [];
                 </div>
                 <div class="download-row">
                     <!-- <a href="#" class="download-btn primary">🪟 下载 <span class="size">8MB</span></a> -->
-                    <a href="https://wwalp.lanzout.com/i2qiC3ss8nyf" class="download-btn"> 下载 <span class="size">10。5MB</span></a>
+                    <a href="https://wwalp.lanzout.com/i2qiC3ss8nyf" class="download-btn primary"> 下载 <span class="size">10。5MB</span></a>
                     
                 </div>
             </div>
+
+            <!-- 日期计算器（在线版） -->
+<div class="tool-card">
+    <div class="icon"><i data-feather="calendar"></i></div>
+    <div class="name">
+        日期计算器
+        <span class="version">在线版</span>
+    </div>
+    <div class="desc">计算两个日期相隔多少天、多少月、多少年。</div>
+    <div class="tags">
+        <span>#办公工具</span>
+        <span>#计算</span>
+    </div>
+
+    <div class="tool-area">
+        <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;">
+            <label style="color:#d4c5a0;font-size:13px;">开始</label>
+            <input type="date" id="dateStart" style="flex:1;min-width:120px;padding:8px 12px;border-radius:8px;border:1px solid rgba(212,184,120,0.2);background:rgba(0,0,0,0.3);color:#e8ddd0;outline:none;font-size:14px;">
+            <label style="color:#d4c5a0;font-size:13px;">结束</label>
+            <input type="date" id="dateEnd" style="flex:1;min-width:120px;padding:8px 12px;border-radius:8px;border:1px solid rgba(212,184,120,0.2);background:rgba(0,0,0,0.3);color:#e8ddd0;outline:none;font-size:14px;">
+            <button onclick="calcDate()" style="padding:8px 20px;background:rgba(255,255,255,0.05);color:#d4c5a0;border:1px solid rgba(212,184,120,0.15);border-radius:8px;cursor:pointer;">🧮 计算</button>
+        </div>
+
+        <div id="dateResult" style="margin-top:10px;padding:12px;background:rgba(0,0,0,0.2);border-radius:8px;min-height:40px;color:rgba(200,180,150,0.6);font-size:14px;">
+            💡 选择日期点击计算
+        </div>
+
+        <div style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap;">
+            <button onclick="setToday()" style="padding:4px 14px;background:rgba(255,255,255,0.05);color:#d4c5a0;border:1px solid rgba(212,184,120,0.15);border-radius:6px;cursor:pointer;font-size:12px;">📌 今天</button>
+            <button onclick="addDays(7)" style="padding:4px 14px;background:rgba(255,255,255,0.05);color:#d4c5a0;border:1px solid rgba(212,184,120,0.15);border-radius:6px;cursor:pointer;font-size:12px;">📆 +7天</button>
+            <button onclick="addDays(30)" style="padding:4px 14px;background:rgba(255,255,255,0.05);color:#d4c5a0;border:1px solid rgba(212,184,120,0.15);border-radius:6px;cursor:pointer;font-size:12px;">📆 +30天</button>
+            <button onclick="addDays(90)" style="padding:4px 14px;background:rgba(255,255,255,0.05);color:#d4c5a0;border:1px solid rgba(212,184,120,0.15);border-radius:6px;cursor:pointer;font-size:12px;">📆 +90天</button>
+            <button onclick="addDays(180)" style="padding:4px 14px;background:rgba(255,255,255,0.05);color:#d4c5a0;border:1px solid rgba(212,184,120,0.15);border-radius:6px;cursor:pointer;font-size:12px;">📆 +180天</button>
+        </div>
+    </div>
+
+    <div class="download-row">
+        <a href="#" class="download-btn primary">💻 在线使用 <span class="size">免安装</span></a>
+    </div>
+</div>
+
+<!-- 随机抽奖（在线版） -->
+<div class="tool-card">
+    <div class="icon"><i data-feather="dice"></i></div>
+    <div class="name">
+        随机抽奖
+        <span class="version">在线版</span>
+    </div>
+    <div class="desc">输入名单，随机抽取幸运儿，支持多人抽取。</div>
+    <div class="tags">
+        <span>#办公工具</span>
+        <span>#抽奖</span>
+    </div>
+
+    <div class="tool-area">
+        <textarea id="lotteryInput" placeholder="输入名单，每行一个名字..." rows="4" style="width:100%;padding:12px;border-radius:10px;border:1px solid rgba(212,184,120,0.2);background:rgba(0,0,0,0.3);color:#e8ddd0;font-size:14px;outline:none;resize:vertical;font-family:inherit;"></textarea>
+        
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin:10px 0;align-items:center;">
+            <label style="color:#d4c5a0;font-size:13px;">抽取人数</label>
+            <input type="number" id="lotteryCount" value="1" min="1" max="20" style="width:60px;padding:6px 10px;border-radius:8px;border:1px solid rgba(212,184,120,0.2);background:rgba(0,0,0,0.3);color:#e8ddd0;text-align:center;outline:none;">
+            <button onclick="startLottery()" style="padding:8px 24px;background:rgba(255,255,255,0.05);color:#d4c5a0;border:1px solid rgba(212,184,120,0.15);border-radius:8px;cursor:pointer;font-size:15px;font-weight:600;">🎲 抽奖</button>
+            <button onclick="clearLottery()" style="padding:8px 16px;background:rgba(255,255,255,0.05);color:#d4c5a0;border:1px solid rgba(212,184,120,0.15);border-radius:8px;cursor:pointer;">🗑️ 清空</button>
+        </div>
+
+        <div id="lotteryResult" style="padding:16px;background:rgba(0,0,0,0.2);border-radius:10px;min-height:60px;text-align:center;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:8px;font-size:24px;font-weight:700;color:#d4c5a0;">
+            💡 输入名单后点击抽奖
+        </div>
+    </div>
+
+    <div class="download-row">
+        <a href="#" class="download-btn primary">💻 在线使用 <span class="size">免安装</span></a>
+    </div>
+</div>
+
+<!-- 英文大小写转换（在线版） -->
+<div class="tool-card">
+    <div class="icon"><i data-feather="type"></i></div>
+    <div class="name">
+        大小写转换
+        <span class="version">在线版</span>
+    </div>
+    <div class="desc">英文大小写互转，支持全部大写、全部小写、首字母大写、单词首字母大写。</div>
+    <div class="tags">
+        <span>#办公工具</span>
+        <span>#文字处理</span>
+    </div>
+
+    <div class="tool-area">
+        <textarea id="caseInput" placeholder="输入要转换的文字..." rows="3" style="width:100%;padding:12px;border-radius:10px;border:1px solid rgba(212,184,120,0.2);background:rgba(0,0,0,0.3);color:#e8ddd0;font-size:14px;outline:none;resize:vertical;font-family:inherit;"></textarea>
+        
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin:10px 0;">
+            <button onclick="toUpperCase()" style="padding:8px 18px;background:rgba(255,255,255,0.05);color:#d4c5a0;border:1px solid rgba(212,184,120,0.15);border-radius:8px;cursor:pointer;">🔠 全部大写</button>
+            <button onclick="toLowerCase()" style="padding:8px 18px;background:rgba(255,255,255,0.05);color:#d4c5a0;border:1px solid rgba(212,184,120,0.15);border-radius:8px;cursor:pointer;">🔡 全部小写</button>
+            <button onclick="toCapitalized()" style="padding:8px 18px;background:rgba(255,255,255,0.05);color:#d4c5a0;border:1px solid rgba(212,184,120,0.15);border-radius:8px;cursor:pointer;">📝 首字母大写</button>
+            <button onclick="toTitleCase()" style="padding:8px 18px;background:rgba(255,255,255,0.05);color:#d4c5a0;border:1px solid rgba(212,184,120,0.15);border-radius:8px;cursor:pointer;">📚 单词首字母大写</button>
+            <button onclick="clearCase()" style="padding:8px 16px;background:rgba(255,255,255,0.05);color:#d4c5a0;border:1px solid rgba(212,184,120,0.15);border-radius:8px;cursor:pointer;">🗑️ 清空</button>
+        </div>
+
+        <div id="caseResult" style="padding:12px;background:rgba(0,0,0,0.2);border-radius:10px;min-height:50px;font-size:14px;color:rgba(200,180,150,0.6);word-break:break-all;">
+            💡 输入文字后点击上方按钮
+        </div>
+    </div>
+
+    <div class="download-row">
+        <a href="#" class="download-btn primary">💻 在线使用 <span class="size">免安装</span></a>
+    </div>
+</div>
 
         </div>
 
@@ -641,6 +767,11 @@ var _hmt = _hmt || [];
             <img src="alipay.jpg" alt="支付宝收款" style="width:160px;height:160px;border-radius:12px;border:1px solid rgba(212,184,120,0.2);">
             <p style="color:rgba(200,180,150,0.4);font-size:12px;margin-top:6px;">支付宝</p>
         </div>
+        <!-- 联系我们 -->
+<div style="text-align:center;">
+    <img src="wechat_qr.jpg" alt="联系我们" style="width:160px;height:auto;max-width:100%;border-radius:12px;border:1px solid rgba(212,184,120,0.2);">
+    <p style="color:rgba(200,180,150,0.4);font-size:12px;margin-top:6px;">💬 如有任何建议，需求请联系我们</p>
+</div>
     </div>
 
     <p style="color:rgba(200,180,150,0.3);font-size:12px;margin-top:16px;">
@@ -739,9 +870,9 @@ function clearSearch() {
 // ===== 公告轮播 =====
 var notices = [
     "🎉 新工具上线啦！欢迎体验",
-    "🎵 已新增「音频转换器」在线工具",
-    "📦 批量文件重命名工具已更新",
-    "🔐 密码管理器 v2.0 已上线",
+    "🎉 新增「日期计算器」在线工具",
+    "🎉 新增「随机抽奖」在线工具",
+    "🎉 新增「英文大小写转换」在线工具",
     "💡 有任何建议欢迎反馈给我们"
 ];
 
@@ -969,6 +1100,183 @@ function clearImage() {
     document.getElementById('imgResult').innerHTML = '📤 选择图片后点击"转换"';
 }
 </script>
+
+<script>
+// ===== 日期计算器 =====
+function calcDate() {
+    var start = document.getElementById('dateStart').value;
+    var end = document.getElementById('dateEnd').value;
+    var result = document.getElementById('dateResult');
+    if (!start || !end) {
+        result.innerHTML = '⚠️ 请选择开始和结束日期';
+        return;
+    }
+    var d1 = new Date(start);
+    var d2 = new Date(end);
+    if (isNaN(d1.getTime()) || isNaN(d2.getTime())) {
+        result.innerHTML = '⚠️ 日期格式无效';
+        return;
+    }
+    if (d2 < d1) {
+        result.innerHTML = '⚠️ 结束日期不能早于开始日期';
+        return;
+    }
+    var diffMs = d2 - d1;
+    var diffDays = Math.floor(diffMs / (1000*60*60*24));
+    var diffMonths = Math.floor(diffDays / 30.44);
+    var diffYears = Math.floor(diffDays / 365.25);
+    var remainDays = diffDays % 365;
+    result.innerHTML = '📊 相差 <strong>' + diffDays + '</strong> 天 &nbsp;|&nbsp; ' +
+                       '<strong>' + diffMonths + '</strong> 个月 &nbsp;|&nbsp; ' +
+                       '<strong>' + diffYears + '</strong> 年 ' +
+                       '<span style="font-size:12px;color:rgba(200,180,150,0.4);">(' + diffYears + '年' + remainDays + '天)</span>';
+}
+
+function setToday() {
+    var today = new Date().toISOString().split('T')[0];
+    document.getElementById('dateStart').value = today;
+    document.getElementById('dateEnd').value = today;
+    calcDate();
+}
+
+function addDays(n) {
+    var start = document.getElementById('dateStart').value;
+    if (!start) {
+        document.getElementById('dateResult').innerHTML = '⚠️ 请先选择开始日期';
+        return;
+    }
+    var d = new Date(start);
+    if (isNaN(d.getTime())) {
+        document.getElementById('dateResult').innerHTML = '⚠️ 开始日期无效';
+        return;
+    }
+    d.setDate(d.getDate() + n);
+    document.getElementById('dateEnd').value = d.toISOString().split('T')[0];
+    calcDate();
+}
+</script>
+
+<script>
+// ===== 随机抽奖 =====
+function startLottery() {
+    var input = document.getElementById('lotteryInput');
+    var count = parseInt(document.getElementById('lotteryCount').value) || 1;
+    var result = document.getElementById('lotteryResult');
+    var text = input.value;
+    
+    if (!text.trim()) {
+        result.innerHTML = '⚠️ 请先输入名单';
+        return;
+    }
+    
+    var list = text.split('\n').filter(function(name) { return name.trim(); });
+    if (list.length === 0) {
+        result.innerHTML = '⚠️ 名单不能为空';
+        return;
+    }
+    
+    if (count > list.length) {
+        result.innerHTML = '⚠️ 抽取人数不能超过总人数（' + list.length + '人）';
+        return;
+    }
+    
+    // 打乱并抽取
+    var shuffled = list.slice();
+    for (var i = shuffled.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = shuffled[i];
+        shuffled[i] = shuffled[j];
+        shuffled[j] = temp;
+    }
+    
+    var winners = shuffled.slice(0, count);
+    
+    // 滚动效果
+    var roll = 0;
+    var maxRoll = 20;
+    var interval = setInterval(function() {
+        var randomIndex = Math.floor(Math.random() * list.length);
+        result.innerHTML = '🎲 抽选中... ' + list[randomIndex];
+        roll++;
+        if (roll >= maxRoll) {
+            clearInterval(interval);
+            if (count === 1) {
+                result.innerHTML = '🎉 恭喜 <strong style="font-size:32px;color:#fbbf24;">' + winners[0] + '</strong> 中奖！🎉';
+            } else {
+                result.innerHTML = '🎉 恭喜 <strong style="font-size:28px;color:#fbbf24;">' + winners.join('、') + '</strong> 中奖！🎉';
+            }
+        }
+    }, 80);
+}
+
+function clearLottery() {
+    document.getElementById('lotteryInput').value = '';
+    document.getElementById('lotteryCount').value = '1';
+    document.getElementById('lotteryResult').innerHTML = '💡 输入名单后点击抽奖';
+}
+</script>
+
+<script>
+// ===== 大小写转换 =====
+function toUpperCase() {
+    var text = document.getElementById('caseInput').value;
+    var result = document.getElementById('caseResult');
+    if (!text.trim()) { result.innerHTML = '⚠️ 请先输入文字'; return; }
+    result.innerHTML = text.replace(/[a-zA-Z]+/g, function(match) {
+        return match.toUpperCase();
+    });
+}
+
+function toLowerCase() {
+    var text = document.getElementById('caseInput').value;
+    var result = document.getElementById('caseResult');
+    if (!text.trim()) { result.innerHTML = '⚠️ 请先输入文字'; return; }
+    result.innerHTML = text.replace(/[a-zA-Z]+/g, function(match) {
+        return match.toLowerCase();
+    });
+}
+
+function toCapitalized() {
+    var text = document.getElementById('caseInput').value;
+    var result = document.getElementById('caseResult');
+    if (!text.trim()) { result.innerHTML = '⚠️ 请先输入文字'; return; }
+    result.innerHTML = text.replace(/[a-zA-Z]+/g, function(match) {
+        return match.charAt(0).toUpperCase() + match.slice(1).toLowerCase();
+    });
+}
+
+function toTitleCase() {
+    var text = document.getElementById('caseInput').value;
+    var result = document.getElementById('caseResult');
+    if (!text.trim()) { result.innerHTML = '⚠️ 请先输入文字'; return; }
+    result.innerHTML = text.replace(/[a-zA-Z]+/g, function(match) {
+        return match.charAt(0).toUpperCase() + match.slice(1).toLowerCase();
+    });
+}
+
+function clearCase() {
+    document.getElementById('caseInput').value = '';
+    document.getElementById('caseResult').innerHTML = '💡 已清空';
+}
+</script>
+
+<script>
+function shareSite() {
+    var url = 'https://guangping484.github.io/tools/';
+    navigator.clipboard.writeText(url).then(function() {
+        alert('✅ 链接已复制！可以分享给朋友了');
+    }).catch(function() {
+        var input = document.createElement('input');
+        input.value = url;
+        document.body.appendChild(input);
+        input.select();
+        document.execCommand('copy');
+        document.body.removeChild(input);
+        alert('✅ 链接已复制！可以分享给朋友了');
+    });
+}
+</script>
+
 
 </body>
 </html>
