@@ -78,7 +78,7 @@
     }
 
     .header .stats span {
-        color: rgba(200, 180, 150, 0.4);
+        color: #d4c5a0;
         font-size: 13px;
         letter-spacing: 1.5px;
     }
@@ -410,6 +410,15 @@
     transform: scale(0.96);
 }
 
+/* 常用工具 */
+#topToolsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    padding: 8px 0;
+}
+
 /* ===== 自动浅色模式（白底黑字 + 金色点缀） ===== */
 @media (prefers-color-scheme: light) {
 
@@ -614,6 +623,16 @@
     }
 }
 
+/* 标题英文变黑 */
+body .header h1 span {
+    color: #000000 !important;
+}
+
+/* 介绍英文变黑 */
+body .header p span {
+    color: #000000 !important;
+}
+
 }
 </style>
 
@@ -639,13 +658,18 @@ var _hmt = _hmt || [];
     <div style="position:relative;z-index:1;">
             <img src="logo.png" alt="logo" style="position:absolute;top:15px;left:15px;height:44px;width:44px;border-radius:10px;border:1.5px solid rgba(212,184,120,0.25);box-shadow:0 0 20px rgba(212,184,120,0.06);">
             <button onclick="shareSite()" style="position:absolute;right:20px;top:15px;background:rgba(255,255,255,0.05);border:1px solid rgba(212,184,120,0.15);color:#d4c5a0;padding:6px 16px;border-radius:8px;cursor:pointer;font-size:13px;">🔗 分享</button>
-            <h1>奉天工具</h1>
-            <p>免费 · 绿色 · 开箱即用</p>
+            <h1 style="font-size:48px;font-weight:700;color:#d4c5a0;letter-spacing:8px;margin:0;text-align:center;">
+    奉天工具
+    <span style="font-size:16px;letter-spacing:4px;color:#d4c5a0;margin-left:12px;">Fengtian Tools</span>
+</h1>
+            <p style="color:#d4c5a0;font-size:15px;letter-spacing:2px;margin-top:4px;">
+    奉天工具 · 免费在线工具集，开箱即用，省去下载安装的麻烦
+    <span style="display:block;color:#d4c5a0;font-size:12px;letter-spacing:1px;margin-top:2px;">
+        Fengtian Tools · Free online tools · Ready to use, no download or install needed
+    </span>
+</p>
             <div class="stats">
-                <span>📦 工具总数 <strong>9</strong></span>
-                <span>📥 累计下载 <strong>1.8k</strong></span>
-                <span>累计使用 <strong style="color:#d4c5a0;">5.8k</strong></span>
-                <span>⭐ 全部免费</span>
+                <span>全部免费 <span style="color:#d4c5a0;font-size:11px;font-weight:400;">· All Free</span></span>
             </div>
         </div>
         </div>
@@ -655,6 +679,55 @@ var _hmt = _hmt || [];
     <span style="color:#d4c5a0;font-weight:600;font-size:12px;flex-shrink:0;">📢</span>
     <span id="noticeText" style="color:rgba(200,180,150,0.75);margin-left:8px;font-size:13px;transition:opacity 0.5s;"></span>
 </div>
+
+<!-- 热门工具标题（固定） -->
+<div style="text-align:center;margin-bottom:6px;">
+    <span style="color:#d4c5a0;font-weight:600;font-size:15px;letter-spacing:2px;">🔥 热门工具</span>
+</div>
+
+<!-- 轮播条 -->
+<div style="overflow:hidden;padding:10px 0;margin:0 0 10px 0;border-top:1px solid rgba(212,184,120,0.06);border-bottom:1px solid rgba(212,184,120,0.06);position:relative;">
+    <div id="scrollBar" style="display:flex;gap:30px;white-space:nowrap;animation:scrollLeft 20s linear infinite;width:max-content;">
+        <span style="color:#d4c5a0;font-size:14px;">📝 文本工具箱</span>
+        <span style="color:rgba(212,184,120,0.2);font-size:14px;">|</span>
+        <span style="color:#d4c5a0;font-size:14px;">🔐 密码管理器</span>
+        <span style="color:rgba(212,184,120,0.2);font-size:14px;">|</span>
+        <span style="color:#d4c5a0;font-size:14px;">📅 日期计算器</span>
+        <span style="color:rgba(212,184,120,0.2);font-size:14px;">|</span>
+        <span style="color:#d4c5a0;font-size:14px;">🎲 随机抽奖</span>
+        <span style="color:rgba(212,184,120,0.2);font-size:14px;">|</span>
+        <span style="color:#d4c5a0;font-size:14px;">🖼️ 图片格式转换</span>
+        <span style="color:rgba(212,184,120,0.2);font-size:14px;">|</span>
+        <span style="color:#d4c5a0;font-size:14px;">📊 表格合并</span>
+        <span style="color:rgba(212,184,120,0.2);font-size:14px;">|</span>
+        <span style="color:#d4c5a0;font-size:14px;">📂 文件批量重命名</span>
+        <span style="color:#d4c5a0;font-size:14px;">📱 二维码生成器</span>
+        <span style="color:rgba(212,184,120,0.2);font-size:14px;">|</span>
+        <!-- 复制一份无缝循环 -->
+        <span style="color:#d4c5a0;font-size:14px;">📝 文本工具箱</span>
+        <span style="color:rgba(212,184,120,0.2);font-size:14px;">|</span>
+        <span style="color:#d4c5a0;font-size:14px;">🔐 密码管理器</span>
+        <span style="color:rgba(212,184,120,0.2);font-size:14px;">|</span>
+        <span style="color:#d4c5a0;font-size:14px;">📅 日期计算器</span>
+        <span style="color:rgba(212,184,120,0.2);font-size:14px;">|</span>
+        <span style="color:#d4c5a0;font-size:14px;">🎲 随机抽奖</span>
+        <span style="color:rgba(212,184,120,0.2);font-size:14px;">|</span>
+        <span style="color:#d4c5a0;font-size:14px;">🖼️ 图片格式转换</span>
+        <span style="color:rgba(212,184,120,0.2);font-size:14px;">|</span>
+        <span style="color:#d4c5a0;font-size:14px;">📊 表格合并</span>
+        <span style="color:rgba(212,184,120,0.2);font-size:14px;">|</span>
+        <span style="color:#d4c5a0;font-size:14px;">📂 文件批量重命名</span>
+        <span style="color:#d4c5a0;font-size:14px;">📱 二维码生成器</span>
+        <span style="color:rgba(212,184,120,0.2);font-size:14px;">|</span>
+    </div>
+</div>
+
+<style>
+@keyframes scrollLeft {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+</style>
 
             <!-- 搜索栏 -->
 <div style="text-align:center;margin-bottom:30px;position:relative;display:inline-block;width:100%;max-width:420px;">
@@ -669,8 +742,21 @@ var _hmt = _hmt || [];
     </span>
 </div>
 
+<!-- 常用工具 -->
+<div style="text-align:center;margin:10px 0 20px 0;">
+    <p style="color:rgba(200,180,150,0.3);font-size:13px;margin-bottom:8px;">⭐ 常用工具</p>
+    <div id="topToolsContainer" style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center;">
+        <span style="color:rgba(200,180,150,0.2);font-size:13px;">使用工具后，这里会显示常用工具</span>
+    </div>
+</div>
+
         <!-- ===== 工具列表 ===== -->
         <div class="tools-grid">
+
+            <!-- ===== 📝 文本工具 ===== -->
+<div style="grid-column:1/-1;margin:20px 0 6px 0;padding-bottom:4px;border-bottom:1px solid rgba(212,184,120,0.05);">
+    <span style="color:#d4c5a0;font-size:15px;font-weight:600;letter-spacing:2px;">📝 文本工具</span>
+</div>
 
             <!-- 工具1：文本工具箱（在线版） -->
 <div class="tool-card">
@@ -705,6 +791,84 @@ var _hmt = _hmt || [];
     <div class="download-row">
         <a href="https://walmart.lanzout.com/ikI2B3ss8nlc" target="_blank" class="download-btn primary"> 下载 <span class="size">10.4MB</span></a>
     </div>
+</div>
+
+<!-- ====== 工具1.1 ====== -->
+<div class="tool-card">
+    <div class="icon"><i data-feather="table"></i></div>
+    <div class="name">
+        表格合并
+        <span class="version">v2.3</span>
+    </div>
+    <div class="desc">导入 CSV/Excel文件夹，多个表格一键合并成一个表格***需下载到本地使用（仅支持Mac）</div>
+    <div class="tags">
+        <span>#合并</span>
+        <span>#图表</span>
+        <span>#办公</span>
+    </div>
+    <div class="download-row">
+        <!-- <a href="#" class="download-btn primary">🪟 下载 <span class="size">35MB</span></a> -->
+        <a href="https://wwalp.lanzout.com/ic5hB3ss8m7c" class="download-btn primary"> 下载 <span class="size">37.9MB</span></a>
+        
+    </div>
+</div>
+
+<!-- ====== 工具1.2 ====== -->
+            <div class="tool-card">
+                <div class="icon"><i data-feather="folder"></i></div>
+                <div class="name">
+                    文件批量重命名
+                    <span class="version">v1.2</span>
+                </div>
+                <div class="desc">按规则批量重命名文件，支持序号、日期、替换等模式***需下载到本地使用（仅支持Mac）</div>
+                <div class="tags">
+                    <span>#文件管理</span>
+                    <span>#批量操作</span>
+                </div>
+                <div class="download-row">
+                    <!-- <a href="#" class="download-btn primary">🪟 下载 <span class="size">8MB</span></a> -->
+                    <a href="https://wwalp.lanzout.com/i2qiC3ss8nyf" class="download-btn primary"> 下载 <span class="size">10。5MB</span></a>
+                    
+                </div>
+            </div>
+
+            <!-- 英文大小写转换（在线版） -->
+<div class="tool-card">
+    <div class="icon"><i data-feather="type"></i></div>
+    <div class="name">
+        大小写转换
+        <span class="version">在线版</span>
+    </div>
+    <div class="desc">英文大小写互转，支持全部大写、全部小写、首字母大写、单词首字母大写。</div>
+    <div class="tags">
+        <span>#办公工具</span>
+        <span>#文字处理</span>
+    </div>
+
+    <div class="tool-area">
+        <textarea id="caseInput" placeholder="输入要转换的文字..." rows="3" style="width:100%;padding:12px;border-radius:10px;border:1px solid rgba(212,184,120,0.2);background:rgba(0,0,0,0.3);color:#e8ddd0;font-size:14px;outline:none;resize:vertical;font-family:inherit;"></textarea>
+        
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin:10px 0;">
+            <button onclick="toUpperCase()" style="padding:8px 18px;background:rgba(255,255,255,0.05);color:#d4c5a0;border:1px solid rgba(212,184,120,0.15);border-radius:8px;cursor:pointer;">🔠 全部大写</button>
+            <button onclick="toLowerCase()" style="padding:8px 18px;background:rgba(255,255,255,0.05);color:#d4c5a0;border:1px solid rgba(212,184,120,0.15);border-radius:8px;cursor:pointer;">🔡 全部小写</button>
+            <button onclick="toCapitalized()" style="padding:8px 18px;background:rgba(255,255,255,0.05);color:#d4c5a0;border:1px solid rgba(212,184,120,0.15);border-radius:8px;cursor:pointer;">📝 首字母大写</button>
+            <button onclick="toTitleCase()" style="padding:8px 18px;background:rgba(255,255,255,0.05);color:#d4c5a0;border:1px solid rgba(212,184,120,0.15);border-radius:8px;cursor:pointer;">📚 单词首字母大写</button>
+            <button onclick="clearCase()" style="padding:8px 16px;background:rgba(255,255,255,0.05);color:#d4c5a0;border:1px solid rgba(212,184,120,0.15);border-radius:8px;cursor:pointer;">🗑️ 清空</button>
+        </div>
+
+        <div id="caseResult" style="padding:12px;background:rgba(0,0,0,0.2);border-radius:10px;min-height:50px;font-size:14px;color:#d4c5a0;word-break:break-all;">
+            💡 输入文字后点击上方按钮
+        </div>
+    </div>
+
+    <div class="download-row">
+        <a href="#" class="download-btn primary">💻 在线使用 <span class="size">免安装</span></a>
+    </div>
+</div>
+
+<!-- ===== 🖼️ 图片工具 ===== -->
+<div style="grid-column:1/-1;margin:20px 0 6px 0;padding-bottom:4px;border-bottom:1px solid rgba(212,184,120,0.05);">
+    <span style="color:#d4c5a0;font-size:15px;font-weight:600;letter-spacing:2px;">🖼️ 图片工具</span>
 </div>
 
             <!-- 图片格式转换（在线版） -->
@@ -743,6 +907,37 @@ var _hmt = _hmt || [];
     <div class="download-row">
         <a href="https://wwalp.lanzout.com/iRxuv3ss8n7i" class="download-btn primary"> 下载 <span class="size">15.5MB</span></a>
     </div>
+</div>
+
+<!-- 二维码生成器 -->
+<div class="tool-card">
+    <div class="icon"><i data-feather="grid"></i></div>
+    <div class="name">二维码生成器 <span class="version">在线版</span></div>
+    <div class="desc">输入文字或网址，一键生成二维码，免费下载使用。</div>
+    <div class="tags">
+        <span>#工具</span>
+        <span>#二维码</span>
+    </div>
+
+    <div class="tool-area">
+        <input type="text" id="qrInput" placeholder="输入文字或网址..." style="width:100%;padding:12px;border-radius:10px;border:1px solid rgba(212,184,120,0.2);background:rgba(0,0,0,0.3);color:#e8ddd0;font-size:14px;outline:none;margin-bottom:10px;">
+        <div style="display:flex;gap:10px;flex-wrap:wrap;">
+            <button onclick="generateQR()" style="flex:1;padding:10px;background:rgba(255,255,255,0.05);color:#d4c5a0;border:1px solid rgba(212,184,120,0.15);border-radius:10px;cursor:pointer;font-size:14px;">生成二维码</button>
+            <button onclick="clearQR()" style="flex:1;padding:10px;background:rgba(255,255,255,0.05);color:#d4c5a0;border:1px solid rgba(212,184,120,0.15);border-radius:10px;cursor:pointer;">清空</button>
+        </div>
+        <div id="qrResult" style="margin-top:12px;padding:16px;background:rgba(0,0,0,0.2);border-radius:10px;text-align:center;min-height:80px;display:flex;align-items:center;justify-content:center;color:#d4c5a0;font-size:14px;flex-direction:column;">
+            💡 输入内容后点击"生成二维码"
+        </div>
+    </div>
+
+    <div class="download-row">
+        <a href="#" class="download-btn primary">💻 在线使用 <span class="size">免安装</span></a>
+    </div>
+</div>
+
+<!-- ===== 🔐 安全工具 ===== -->
+<div style="grid-column:1/-1;margin:20px 0 6px 0;padding-bottom:4px;border-bottom:1px solid rgba(212,184,120,0.05);">
+    <span style="color:#d4c5a0;font-size:15px;font-weight:600;letter-spacing:2px;">🔐 安全工具</span>
 </div>
 
             <!-- 密码管理器（在线版） -->
@@ -796,6 +991,11 @@ var _hmt = _hmt || [];
     </div>
 </div>
 
+<!-- ===== 🎵 媒体工具 ===== -->
+<div style="grid-column:1/-1;margin:20px 0 6px 0;padding-bottom:4px;border-bottom:1px solid rgba(212,184,120,0.05);">
+    <span style="color:#d4c5a0;font-size:15px;font-weight:600;letter-spacing:2px;">🎵 媒体工具</span>
+</div>
+
             <!-- ====== 工具4 ====== -->
             <div class="tool-card">
                 <div class="icon"><i data-feather="music"></i></div>
@@ -809,48 +1009,14 @@ var _hmt = _hmt || [];
         <span>#在线工具</span>
     </div>
     <div class="download-row">
-        <a href="https://cloudconvert.com/audio-converter" target="_blank" class="download-btn primary">🎵 在线转换 <span class="size">免费使用</span></a>
+        <a href="https://cloudconvert.com/audio-converter" target="_blank" class="download-btn primary"onclick="recordToolUsage('音频转换器');">🎵 在线转换 <span class="size">免费使用</span></a>
     </div>
 </div>
 
-            <!-- ====== 工具5 ====== -->
-            <div class="tool-card">
-                <div class="icon"><i data-feather="table"></i></div>
-                <div class="name">
-                    表格合并
-                    <span class="version">v2.3</span>
-                </div>
-                <div class="desc">导入 CSV/Excel文件夹，多个表格一键合并成一个表格。</div>
-                <div class="tags">
-                    <span>#合并</span>
-                    <span>#图表</span>
-                    <span>#办公</span>
-                </div>
-                <div class="download-row">
-                    <!-- <a href="#" class="download-btn primary">🪟 下载 <span class="size">35MB</span></a> -->
-                    <a href="https://wwalp.lanzout.com/ic5hB3ss8m7c" class="download-btn primary"> 下载 <span class="size">37.9MB</span></a>
-                    
-                </div>
-            </div>
-
-            <!-- ====== 工具6 ====== -->
-            <div class="tool-card">
-                <div class="icon"><i data-feather="folder"></i></div>
-                <div class="name">
-                    文件批量重命名
-                    <span class="version">v1.2</span>
-                </div>
-                <div class="desc">按规则批量重命名文件，支持序号、日期、替换等模式。</div>
-                <div class="tags">
-                    <span>#文件管理</span>
-                    <span>#批量操作</span>
-                </div>
-                <div class="download-row">
-                    <!-- <a href="#" class="download-btn primary">🪟 下载 <span class="size">8MB</span></a> -->
-                    <a href="https://wwalp.lanzout.com/i2qiC3ss8nyf" class="download-btn primary"> 下载 <span class="size">10。5MB</span></a>
-                    
-                </div>
-            </div>
+<!-- ===== 📅 效率工具 ===== -->
+<div style="grid-column:1/-1;margin:20px 0 6px 0;padding-bottom:4px;border-bottom:1px solid rgba(212,184,120,0.05);">
+    <span style="color:#d4c5a0;font-size:15px;font-weight:600;letter-spacing:2px;">📅 效率工具</span>
+</div>
 
             <!-- 日期计算器（在线版） -->
 <div class="tool-card">
@@ -925,39 +1091,7 @@ var _hmt = _hmt || [];
     </div>
 </div>
 
-<!-- 英文大小写转换（在线版） -->
-<div class="tool-card">
-    <div class="icon"><i data-feather="type"></i></div>
-    <div class="name">
-        大小写转换
-        <span class="version">在线版</span>
-    </div>
-    <div class="desc">英文大小写互转，支持全部大写、全部小写、首字母大写、单词首字母大写。</div>
-    <div class="tags">
-        <span>#办公工具</span>
-        <span>#文字处理</span>
-    </div>
 
-    <div class="tool-area">
-        <textarea id="caseInput" placeholder="输入要转换的文字..." rows="3" style="width:100%;padding:12px;border-radius:10px;border:1px solid rgba(212,184,120,0.2);background:rgba(0,0,0,0.3);color:#e8ddd0;font-size:14px;outline:none;resize:vertical;font-family:inherit;"></textarea>
-        
-        <div style="display:flex;gap:10px;flex-wrap:wrap;margin:10px 0;">
-            <button onclick="toUpperCase()" style="padding:8px 18px;background:rgba(255,255,255,0.05);color:#d4c5a0;border:1px solid rgba(212,184,120,0.15);border-radius:8px;cursor:pointer;">🔠 全部大写</button>
-            <button onclick="toLowerCase()" style="padding:8px 18px;background:rgba(255,255,255,0.05);color:#d4c5a0;border:1px solid rgba(212,184,120,0.15);border-radius:8px;cursor:pointer;">🔡 全部小写</button>
-            <button onclick="toCapitalized()" style="padding:8px 18px;background:rgba(255,255,255,0.05);color:#d4c5a0;border:1px solid rgba(212,184,120,0.15);border-radius:8px;cursor:pointer;">📝 首字母大写</button>
-            <button onclick="toTitleCase()" style="padding:8px 18px;background:rgba(255,255,255,0.05);color:#d4c5a0;border:1px solid rgba(212,184,120,0.15);border-radius:8px;cursor:pointer;">📚 单词首字母大写</button>
-            <button onclick="clearCase()" style="padding:8px 16px;background:rgba(255,255,255,0.05);color:#d4c5a0;border:1px solid rgba(212,184,120,0.15);border-radius:8px;cursor:pointer;">🗑️ 清空</button>
-        </div>
-
-        <div id="caseResult" style="padding:12px;background:rgba(0,0,0,0.2);border-radius:10px;min-height:50px;font-size:14px;color:#d4c5a0;word-break:break-all;">
-            💡 输入文字后点击上方按钮
-        </div>
-    </div>
-
-    <div class="download-row">
-        <a href="#" class="download-btn primary">💻 在线使用 <span class="size">免安装</span></a>
-    </div>
-</div>
 
         </div>
 
@@ -1080,7 +1214,7 @@ function clearSearch() {
 // ===== 公告轮播 =====
 var notices = [
     "🎉 新工具上线啦！欢迎体验",
-    "🎉 新增「日期计算器」在线工具",
+    "🎉 新增「二维码生成」在线工具",
     "🎉 新增「随机抽奖」在线工具",
     "🎉 新增「英文大小写转换」在线工具",
     "💡 有任何建议欢迎反馈给我们"
@@ -1113,6 +1247,7 @@ setInterval(nextNotice, 4000);
 <script>
 // ===== 文本工具箱功能 =====
 function countWords() {
+recordToolUsage('文本工具箱');
     var text = document.getElementById('textInput').value;
     var resultBox = document.getElementById('textResult');
     
@@ -1185,6 +1320,7 @@ function clearText() {
 <script>
 // ===== 密码管理器功能 =====
 function generatePasswords() {
+    recordToolUsage('密码管理器');
     var length = parseInt(document.getElementById('pwdLength').value) || 16;
     var count = parseInt(document.getElementById('pwdCount').value) || 1;
     
@@ -1270,6 +1406,7 @@ function checkStrength() {
 <script>
 // ===== 图片格式转换 =====
 function convertImage() {
+    recordToolUsage('批量图片处理');
     var fileInput = document.getElementById('imgInput');
     var format = document.getElementById('imgFormat').value;
     var result = document.getElementById('imgResult');
@@ -1314,6 +1451,7 @@ function clearImage() {
 <script>
 // ===== 日期计算器 =====
 function calcDate() {
+    recordToolUsage('日期计算器');
     var start = document.getElementById('dateStart').value;
     var end = document.getElementById('dateEnd').value;
     var result = document.getElementById('dateResult');
@@ -1369,6 +1507,7 @@ function addDays(n) {
 <script>
 // ===== 随机抽奖 =====
 function startLottery() {
+    recordToolUsage('随机抽奖');
     var input = document.getElementById('lotteryInput');
     var count = parseInt(document.getElementById('lotteryCount').value) || 1;
     var result = document.getElementById('lotteryResult');
@@ -1429,6 +1568,7 @@ function clearLottery() {
 <script>
 // ===== 大小写转换 =====
 function toUpperCase() {
+    recordToolUsage('大小写转换');
     var text = document.getElementById('caseInput').value;
     var result = document.getElementById('caseResult');
     if (!text.trim()) { result.innerHTML = '⚠️ 请先输入文字'; return; }
@@ -1526,6 +1666,9 @@ function shareSite() {
             <h3 style="color:#d4c5a0;margin:16px 0 8px;">🔤 大小写转换</h3>
             <p>输入英文 → 选「全部大写」「全部小写」「首字母大写」「单词首字母大写」→ 看结果</p>
 
+            <h3 style="color:#d4c5a0;margin:16px 0 8px;">📱 二维码生成器</h3>
+            <p>输入文字或网址 → 点击「生成二维码」→ 点击「下载二维码」保存</p>
+
             <hr style="border-color:rgba(212,184,120,0.1);margin:20px 0;">
 
             <p style="text-align:center;color:rgba(200,180,150,0.4);font-size:12px;">
@@ -1570,6 +1713,7 @@ document.addEventListener('click', function(e) {
                 <li>新增日期计算器、随机抽奖、大小写转换</li>
                 <li>新增使用指南弹窗</li>
                 <li>统一所有结果框样式</li>
+                <li>新增二维码生成器</li>
             </ul>
 
             <h3 style="color:#d4c5a0;margin:16px 0 8px;">📅 2026-06-25</h3>
@@ -1636,6 +1780,90 @@ function updateBanner() {
 }
 updateBanner();
 window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', updateBanner);
+</script>
+
+<script>
+    // ===== 二维码生成器 =====
+function generateQR() {
+    recordToolUsage('二维码生成器');
+    var input = document.getElementById('qrInput').value.trim();
+    var result = document.getElementById('qrResult');
+    if (!input) {
+        result.innerHTML = '⚠️ 请输入文字或网址';
+        return;
+    }
+    // 使用免费 API 生成二维码
+    var qrUrl = 'https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=' + encodeURIComponent(input);
+    result.innerHTML = '<img src="' + qrUrl + '" style="max-width:200px;border-radius:10px;"><br><a href="' + qrUrl + '" download="qrcode.png" style="color:#d4c5a0;font-size:13px;margin-top:8px;display:inline-block;">📥 下载二维码</a>';
+}
+
+function clearQR() {
+    document.getElementById('qrInput').value = '';
+    document.getElementById('qrResult').innerHTML = '💡 输入内容后点击"生成二维码"';
+}
+</script>
+
+<script>
+    // ===== 常用工具记录 =====
+var toolNames = [
+    '文本工具箱',
+    '大小写转换',
+    '密码管理器',
+    '日期计算器',
+    '随机抽奖',
+    '批量图片处理',
+    '二维码生成器',
+    '音频转换器'
+];
+
+function getToolUsage() {
+    var data = localStorage.getItem('toolUsage');
+    if (data) {
+        return JSON.parse(data);
+    }
+    var defaultData = {};
+    toolNames.forEach(function(name) {
+        defaultData[name] = 0;
+    });
+    return defaultData;
+}
+
+function recordToolUsage(toolName) {
+    var data = getToolUsage();
+    if (data[toolName] !== undefined) {
+        data[toolName] += 1;
+    } else {
+        data[toolName] = 1;
+    }
+    localStorage.setItem('toolUsage', JSON.stringify(data));
+}
+
+function getTopTools() {
+    var data = getToolUsage();
+    var sorted = [];
+    for (var name in data) {
+        sorted.push({name: name, count: data[name]});
+    }
+    sorted.sort(function(a, b) { return b.count - a.count; });
+    return sorted.filter(function(item) { return item.count > 0; }).slice(0, 5);
+}
+
+function showTopTools() {
+    var topTools = getTopTools();
+    var container = document.getElementById('topToolsContainer');
+    if (!container) return;
+    if (topTools.length === 0) {
+        container.innerHTML = '<span style="color:rgba(200,180,150,0.2);font-size:13px;">使用工具后，这里会显示常用工具</span>';
+        return;
+    }
+    var html = '';
+    topTools.forEach(function(item) {
+        html += '<span style="display:inline-block;padding:6px 16px;background:rgba(212,184,120,0.08);border:1px solid rgba(212,184,120,0.1);border-radius:20px;color:#d4c5a0;font-size:13px;cursor:default;">' + item.name + ' <span style="color:rgba(200,180,150,0.2);font-size:11px;">' + item.count + '次</span></span>';
+    });
+    container.innerHTML = html;
+}
+
+showTopTools();
 </script>
 
 
