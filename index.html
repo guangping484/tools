@@ -597,6 +597,23 @@
         color: #000000 !important;
     }
 
+    /* 深色模式默认图 */
+.header {
+    /* background-image: url('banner-dark.jpg'); */
+    background-size: cover;
+    background-position: center;
+    padding: 40px 20px;
+    border-radius: 16px;
+    position: relative;
+}
+
+/* 浅色模式换图 */
+@media (prefers-color-scheme: light) {
+    .header {
+        background-image: url('banner-light.jpg') !important;
+    }
+}
+
 }
 </style>
 
@@ -616,7 +633,10 @@ var _hmt = _hmt || [];
     <div class="container">
 
         <!-- ===== 头部 ===== -->
-        <div class="header">
+        <div class="header" style="position:relative;background-image:url('banner-dark.jpg');background-size:cover;background-position:center;padding:40px 20px;border-radius:16px;">
+    <!-- 遮罩层 -->
+    <div id="bannerOverlay" style="position:absolute;top:0;left:0;width:100%;height:100%;border-radius:16px;z-index:0;"></div>
+    <div style="position:relative;z-index:1;">
             <img src="logo.png" alt="logo" style="position:absolute;top:15px;left:15px;height:44px;width:44px;border-radius:10px;border:1.5px solid rgba(212,184,120,0.25);box-shadow:0 0 20px rgba(212,184,120,0.06);">
             <button onclick="shareSite()" style="position:absolute;right:20px;top:15px;background:rgba(255,255,255,0.05);border:1px solid rgba(212,184,120,0.15);color:#d4c5a0;padding:6px 16px;border-radius:8px;cursor:pointer;font-size:13px;">🔗 分享</button>
             <h1>奉天工具</h1>
@@ -627,6 +647,7 @@ var _hmt = _hmt || [];
                 <span>累计使用 <strong style="color:#d4c5a0;">5.8k</strong></span>
                 <span>⭐ 全部免费</span>
             </div>
+        </div>
         </div>
 
         <!-- ===== 公告轮播（细长条） ===== -->
@@ -976,7 +997,6 @@ var _hmt = _hmt || [];
                 🛠️ 所有工具由 PyInstaller 打包 · 无需安装 Python
             </p>
             <p style="margin-top:6px;font-size:13px;color:#555;">
-                <a href="#">GitHub</a> · 
                 <a href="https://wj.qq.com/s2/27148730/b6cc/" target="_blank" style="color:#d4c5a0;text-decoration:none;">反馈建议</a> · 
                 <a href="#" onclick="showChangelog()" style="color:#d4c5a0;text-decoration:none;">更新日志</a> ·
                 <a href="#" onclick="showGuide()" style="color:#d4c5a0;text-decoration:none;">使用指南</a>
@@ -1585,6 +1605,37 @@ document.addEventListener('click', function(e) {
         closeChangelog();
     }
 });
+</script>
+
+<script>
+    // 控制遮罩层深浅
+function updateBannerOverlay() {
+    var overlay = document.getElementById('bannerOverlay');
+    if (!overlay) return;
+    var isLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+    if (isLight) {
+        overlay.style.background = 'rgba(255,255,255,0.3)';
+    } else {
+        overlay.style.background = 'rgba(0,0,0,0.4)';
+    }
+}
+updateBannerOverlay();
+window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', updateBannerOverlay);
+</script>
+
+<script>
+function updateBanner() {
+    var header = document.querySelector('.header');
+    if (!header) return;
+    var isLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+    if (isLight) {
+        header.style.backgroundImage = "url('banner-light.jpg')";
+    } else {
+        header.style.backgroundImage = "url('banner-dark.jpg')";
+    }
+}
+updateBanner();
+window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', updateBanner);
 </script>
 
 
