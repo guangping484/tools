@@ -729,6 +729,52 @@ var _hmt = _hmt || [];
 }
 </style>
 
+<!-- 第二行轮播（从左往右） -->
+<div style="overflow:hidden;padding:10px 0;margin:0 0 10px 0;border-bottom:1px solid rgba(212,184,120,0.06);position:relative;">
+    <div id="scrollBarReverse" style="display:flex;gap:30px;white-space:nowrap;animation:scrollRight 25s linear infinite;width:max-content;">
+        <span style="color:#d4c5a0;font-size:14px;">📝 文本工具箱</span>
+        <span style="color:rgba(212,184,120,0.2);font-size:14px;">|</span>
+        <span style="color:#d4c5a0;font-size:14px;">🔐 密码管理器</span>
+        <span style="color:rgba(212,184,120,0.2);font-size:14px;">|</span>
+        <span style="color:#d4c5a0;font-size:14px;">📅 日期计算器</span>
+        <span style="color:rgba(212,184,120,0.2);font-size:14px;">|</span>
+        <span style="color:#d4c5a0;font-size:14px;">🎲 随机抽奖</span>
+        <span style="color:rgba(212,184,120,0.2);font-size:14px;">|</span>
+        <span style="color:#d4c5a0;font-size:14px;">🖼️ 图片格式转换</span>
+        <span style="color:rgba(212,184,120,0.2);font-size:14px;">|</span>
+        <span style="color:#d4c5a0;font-size:14px;">📊 表格合并</span>
+        <span style="color:rgba(212,184,120,0.2);font-size:14px;">|</span>
+        <span style="color:#d4c5a0;font-size:14px;">📂 文件批量重命名</span>
+        <span style="color:rgba(212,184,120,0.2);font-size:14px;">|</span>
+        <span style="color:#d4c5a0;font-size:14px;">📱 二维码生成器</span>
+        <span style="color:rgba(212,184,120,0.2);font-size:14px;">|</span>
+        <!-- 复制一份无缝循环 -->
+        <span style="color:#d4c5a0;font-size:14px;">📝 文本工具箱</span>
+        <span style="color:rgba(212,184,120,0.2);font-size:14px;">|</span>
+        <span style="color:#d4c5a0;font-size:14px;">🔐 密码管理器</span>
+        <span style="color:rgba(212,184,120,0.2);font-size:14px;">|</span>
+        <span style="color:#d4c5a0;font-size:14px;">📅 日期计算器</span>
+        <span style="color:rgba(212,184,120,0.2);font-size:14px;">|</span>
+        <span style="color:#d4c5a0;font-size:14px;">🎲 随机抽奖</span>
+        <span style="color:rgba(212,184,120,0.2);font-size:14px;">|</span>
+        <span style="color:#d4c5a0;font-size:14px;">🖼️ 图片格式转换</span>
+        <span style="color:rgba(212,184,120,0.2);font-size:14px;">|</span>
+        <span style="color:#d4c5a0;font-size:14px;">📊 表格合并</span>
+        <span style="color:rgba(212,184,120,0.2);font-size:14px;">|</span>
+        <span style="color:#d4c5a0;font-size:14px;">📂 文件批量重命名</span>
+        <span style="color:rgba(212,184,120,0.2);font-size:14px;">|</span>
+        <span style="color:#d4c5a0;font-size:14px;">📱 二维码生成器</span>
+        <span style="color:rgba(212,184,120,0.2);font-size:14px;">|</span>
+    </div>
+</div>
+
+<style>
+@keyframes scrollRight {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
+}
+</style>
+
             <!-- 搜索栏 -->
 <div style="text-align:center;margin-bottom:30px;position:relative;display:inline-block;width:100%;max-width:420px;">
     <input type="text" id="searchInput" placeholder="🔍 搜索工具名称..." 
