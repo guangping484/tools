@@ -703,6 +703,12 @@ var _hmt = _hmt || [];
         <span style="color:#d4c5a0;font-size:14px;">📂 文件批量重命名</span>
         <span style="color:#d4c5a0;font-size:14px;">📱 二维码生成器</span>
         <span style="color:rgba(212,184,120,0.2);font-size:14px;">|</span>
+        <span style="color:#d4c5a0;font-size:14px;">🔐 Base64 编码/解码</span>
+        <span style="color:rgba(212,184,120,0.2);font-size:14px;">|</span>
+        <span style="color:#d4c5a0;font-size:14px;">📦 JSON 格式化</span>
+        <span style="color:rgba(212,184,120,0.2);font-size:14px;">|</span>
+        <span style="color:#d4c5a0;font-size:14px;">📺 YouTube 缩略图</span>
+        <span style="color:rgba(212,184,120,0.2);font-size:14px;">|</span>
         <!-- 复制一份无缝循环 -->
         <span style="color:#d4c5a0;font-size:14px;">📝 文本工具箱</span>
         <span style="color:rgba(212,184,120,0.2);font-size:14px;">|</span>
@@ -718,6 +724,12 @@ var _hmt = _hmt || [];
         <span style="color:rgba(212,184,120,0.2);font-size:14px;">|</span>
         <span style="color:#d4c5a0;font-size:14px;">📂 文件批量重命名</span>
         <span style="color:#d4c5a0;font-size:14px;">📱 二维码生成器</span>
+        <span style="color:rgba(212,184,120,0.2);font-size:14px;">|</span>
+        <span style="color:#d4c5a0;font-size:14px;">🔐 Base64 编码/解码</span>
+        <span style="color:rgba(212,184,120,0.2);font-size:14px;">|</span>
+        <span style="color:#d4c5a0;font-size:14px;">📦 JSON 格式化</span>
+        <span style="color:rgba(212,184,120,0.2);font-size:14px;">|</span>
+        <span style="color:#d4c5a0;font-size:14px;">📺 YouTube 缩略图</span>
         <span style="color:rgba(212,184,120,0.2);font-size:14px;">|</span>
     </div>
 </div>
@@ -748,6 +760,12 @@ var _hmt = _hmt || [];
         <span style="color:rgba(212,184,120,0.2);font-size:14px;">|</span>
         <span style="color:#d4c5a0;font-size:14px;">📱 二维码生成器</span>
         <span style="color:rgba(212,184,120,0.2);font-size:14px;">|</span>
+        <span style="color:#d4c5a0;font-size:14px;">🔐 Base64 编码/解码</span>
+        <span style="color:rgba(212,184,120,0.2);font-size:14px;">|</span>
+        <span style="color:#d4c5a0;font-size:14px;">📦 JSON 格式化</span>
+        <span style="color:rgba(212,184,120,0.2);font-size:14px;">|</span>
+        <span style="color:#d4c5a0;font-size:14px;">📺 YouTube 缩略图</span>
+        <span style="color:rgba(212,184,120,0.2);font-size:14px;">|</span>
         <!-- 复制一份无缝循环 -->
         <span style="color:#d4c5a0;font-size:14px;">📝 文本工具箱</span>
         <span style="color:rgba(212,184,120,0.2);font-size:14px;">|</span>
@@ -764,6 +782,12 @@ var _hmt = _hmt || [];
         <span style="color:#d4c5a0;font-size:14px;">📂 文件批量重命名</span>
         <span style="color:rgba(212,184,120,0.2);font-size:14px;">|</span>
         <span style="color:#d4c5a0;font-size:14px;">📱 二维码生成器</span>
+        <span style="color:rgba(212,184,120,0.2);font-size:14px;">|</span>
+        <span style="color:#d4c5a0;font-size:14px;">🔐 Base64 编码/解码</span>
+        <span style="color:rgba(212,184,120,0.2);font-size:14px;">|</span>
+        <span style="color:#d4c5a0;font-size:14px;">📦 JSON 格式化</span>
+        <span style="color:rgba(212,184,120,0.2);font-size:14px;">|</span>
+        <span style="color:#d4c5a0;font-size:14px;">📺 YouTube 缩略图</span>
         <span style="color:rgba(212,184,120,0.2);font-size:14px;">|</span>
     </div>
 </div>
@@ -912,6 +936,48 @@ var _hmt = _hmt || [];
     </div>
 </div>
 
+<!-- Base64 编码/解码 -->
+<div class="tool-card">
+    <div class="icon"><i data-feather="code"></i></div>
+    <div class="name">Base64 编码/解码 <span class="version">在线版</span></div>
+    <div class="desc">文字和 Base64 互相转换，支持中英文。</div>
+    <div class="tags">
+        <span>#编码</span>
+        <span>#开发工具</span>
+    </div>
+    <div class="tool-area">
+        <textarea id="base64Input" placeholder="输入要编码或解码的文字..." rows="4" style="width:100%;padding:12px;border-radius:10px;border:1px solid rgba(212,184,120,0.2);background:rgba(0,0,0,0.3);color:#e8ddd0;outline:none;resize:vertical;font-family:inherit;"></textarea>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin:10px 0;">
+            <button onclick="base64Encode()" style="padding:10px 20px;background:rgba(255,255,255,0.05);color:#d4c5a0;border:1px solid rgba(212,184,120,0.15);border-radius:8px;cursor:pointer;">🔐 编码</button>
+            <button onclick="base64Decode()" style="padding:10px 20px;background:rgba(255,255,255,0.05);color:#d4c5a0;border:1px solid rgba(212,184,120,0.15);border-radius:8px;cursor:pointer;">🔓 解码</button>
+            <button onclick="clearBase64()" style="padding:10px 16px;background:rgba(255,255,255,0.05);color:#d4c5a0;border:1px solid rgba(212,184,120,0.15);border-radius:8px;cursor:pointer;">🗑️ 清空</button>
+        </div>
+        <div id="base64Result" style="padding:12px;background:rgba(0,0,0,0.2);border-radius:8px;min-height:50px;color:#d4c5a0;font-size:14px;word-break:break-all;">💡 输入文字后点击"编码"或"解码"</div>
+    </div>
+    <div class="download-row"><a href="#" class="download-btn primary">💻 在线使用 <span class="size">免安装</span></a></div>
+</div>
+
+<!-- JSON 格式化 -->
+<div class="tool-card">
+    <div class="icon"><i data-feather="braces"></i></div>
+    <div class="name">JSON 格式化 <span class="version">在线版</span></div>
+    <div class="desc">格式化/压缩 JSON 数据，方便查看和调试。</div>
+    <div class="tags">
+        <span>#编码</span>
+        <span>#开发工具</span>
+    </div>
+    <div class="tool-area">
+        <textarea id="jsonInput" placeholder="输入 JSON 数据..." rows="4" style="width:100%;padding:12px;border-radius:10px;border:1px solid rgba(212,184,120,0.2);background:rgba(0,0,0,0.3);color:#e8ddd0;outline:none;resize:vertical;font-family:inherit;"></textarea>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin:10px 0;">
+            <button onclick="jsonFormat()" style="padding:10px 20px;background:rgba(255,255,255,0.05);color:#d4c5a0;border:1px solid rgba(212,184,120,0.15);border-radius:8px;cursor:pointer;">📝 格式化</button>
+            <button onclick="jsonCompress()" style="padding:10px 20px;background:rgba(255,255,255,0.05);color:#d4c5a0;border:1px solid rgba(212,184,120,0.15);border-radius:8px;cursor:pointer;">📦 压缩</button>
+            <button onclick="clearJson()" style="padding:10px 16px;background:rgba(255,255,255,0.05);color:#d4c5a0;border:1px solid rgba(212,184,120,0.15);border-radius:8px;cursor:pointer;">🗑️ 清空</button>
+        </div>
+        <div id="jsonResult" style="padding:12px;background:rgba(0,0,0,0.2);border-radius:8px;min-height:50px;color:#d4c5a0;font-size:14px;word-break:break-all;white-space:pre-wrap;">💡 输入 JSON 后点击"格式化"或"压缩"</div>
+    </div>
+    <div class="download-row"><a href="#" class="download-btn primary">💻 在线使用 <span class="size">免安装</span></a></div>
+</div>
+
 <!-- ===== 🖼️ 图片工具 ===== -->
 <div style="grid-column:1/-1;margin:20px 0 6px 0;padding-bottom:4px;border-bottom:1px solid rgba(212,184,120,0.05);">
     <span style="color:#d4c5a0;font-size:15px;font-weight:600;letter-spacing:2px;">🖼️ 图片工具</span>
@@ -1057,6 +1123,28 @@ var _hmt = _hmt || [];
     <div class="download-row">
         <a href="https://cloudconvert.com/audio-converter" target="_blank" class="download-btn primary"onclick="recordToolUsage('音频转换器');">🎵 在线转换 <span class="size">免费使用</span></a>
     </div>
+</div>
+
+<!-- YouTube 缩略图下载器 -->
+<div class="tool-card">
+    <div class="icon"><i data-feather="youtube"></i></div>
+    <div class="name">YouTube 缩略图下载器 <span class="version">在线版</span></div>
+    <div class="desc">输入 YouTube 视频链接，一键下载高清缩略图。</div>
+    <div class="tags">
+        <span>#视频</span>
+        <span>#下载</span>
+    </div>
+    <div class="tool-area">
+        <input type="text" id="ytInput" placeholder="输入 YouTube 视频链接..." style="width:100%;padding:12px;border-radius:10px;border:1px solid rgba(212,184,120,0.2);background:rgba(0,0,0,0.3);color:#e8ddd0;font-size:14px;outline:none;margin-bottom:10px;">
+        <div style="display:flex;gap:10px;flex-wrap:wrap;">
+            <button onclick="getYoutubeThumbnails()" style="flex:1;padding:10px;background:rgba(255,255,255,0.05);color:#d4c5a0;border:1px solid rgba(212,184,120,0.15);border-radius:10px;cursor:pointer;font-size:14px;">📥 获取缩略图</button>
+            <button onclick="clearYoutube()" style="flex:1;padding:10px;background:rgba(255,255,255,0.05);color:#d4c5a0;border:1px solid rgba(212,184,120,0.15);border-radius:10px;cursor:pointer;">🗑️ 清空</button>
+        </div>
+        <div id="ytResult" style="margin-top:12px;padding:16px;background:rgba(0,0,0,0.2);border-radius:10px;min-height:80px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#d4c5a0;font-size:14px;">
+            💡 输入 YouTube 链接后点击"获取缩略图"
+        </div>
+    </div>
+    <div class="download-row"><a href="#" class="download-btn primary">💻 在线使用 <span class="size">免安装</span></a></div>
 </div>
 
 <!-- ===== 📅 效率工具 ===== -->
@@ -1714,6 +1802,12 @@ function shareSite() {
 
             <h3 style="color:#d4c5a0;margin:16px 0 8px;">📱 二维码生成器</h3>
             <p>输入文字或网址 → 点击「生成二维码」→ 点击「下载二维码」保存</p>
+            <h3 style="color:#d4c5a0;margin:16px 0 8px;">🔐 Base64 编码/解码</h3>
+            <p>输入文字 → 点击「编码」转成 Base64，或点击「解码」还原</p>
+            <h3 style="color:#d4c5a0;margin:16px 0 8px;">📦 JSON 格式化</h3>
+            <p>输入 JSON 数据 → 点击「格式化」美化排版，或「压缩」去除空格</p>
+            <h3 style="color:#d4c5a0;margin:16px 0 8px;">📺 YouTube 缩略图下载器</h3>
+            <p>输入 YouTube 链接 → 点击「获取缩略图」→ 选择分辨率下载</p>
 
             <hr style="border-color:rgba(212,184,120,0.1);margin:20px 0;">
 
@@ -1752,6 +1846,13 @@ document.addEventListener('click', function(e) {
         <button onclick="closeChangelog()" style="position:absolute;top:15px;right:20px;background:none;border:none;color:#888;font-size:28px;cursor:pointer;">×</button>
         <h2 style="color:#d4c5a0;text-align:center;margin-bottom:20px;">📋 更新日志</h2>
         <div style="font-size:14px;line-height:1.8;color:rgba(220,210,195,0.85);">
+
+            <h3 style="color:#d4c5a0;margin:16px 0 8px;">📅 2026-06-28</h3>
+            <ul style="padding-left:20px;margin:0;">
+                <li>新增 JSON 格式化工具</li>
+                <li>新增 Base64 编码/解码工具</li>
+                <li>新增 YouTube 缩略图下载器</li>
+            </ul>
 
             <h3 style="color:#d4c5a0;margin:16px 0 8px;">📅 2026-06-26</h3>
             <ul style="padding-left:20px;margin:0;">
@@ -1859,7 +1960,10 @@ var toolNames = [
     '随机抽奖',
     '批量图片处理',
     '二维码生成器',
-    '音频转换器'
+    '音频转换器',
+    'Base64 编码/解码',
+    'JSON 格式化',
+    'YouTube 缩略图下载器',
 ];
 
 function getToolUsage() {
@@ -1910,6 +2014,142 @@ function showTopTools() {
 }
 
 showTopTools();
+</script>
+
+<script>
+    // ===== Base64 编码/解码 =====
+function base64Encode() {
+    recordToolUsage('Base64 编码/解码');
+    var input = document.getElementById('base64Input');
+    var result = document.getElementById('base64Result');
+    var text = input.value;
+    if (!text.trim()) { result.innerHTML = '⚠️ 请先输入文字'; return; }
+    try {
+        var encoded = btoa(unescape(encodeURIComponent(text)));
+        result.innerHTML = '✅ 编码结果：<br><span style="color:#d4c5a0;font-size:15px;word-break:break-all;">' + encoded + '</span>';
+    } catch(e) {
+        result.innerHTML = '⚠️ 编码失败，请检查输入内容';
+    }
+}
+
+function base64Decode() {
+    var input = document.getElementById('base64Input');
+    var result = document.getElementById('base64Result');
+    var text = input.value.trim();
+    if (!text) { result.innerHTML = '⚠️ 请输入 Base64 字符串'; return; }
+    try {
+        var decoded = decodeURIComponent(escape(atob(text)));
+        result.innerHTML = '✅ 解码结果：<br><span style="color:#d4c5a0;font-size:15px;word-break:break-all;">' + decoded + '</span>';
+    } catch(e) {
+        result.innerHTML = '⚠️ 解码失败，请检查输入是否为有效的 Base64 字符串';
+    }
+}
+
+function clearBase64() {
+    document.getElementById('base64Input').value = '';
+    document.getElementById('base64Result').innerHTML = '💡 输入文字后点击"编码"或"解码"';
+}
+</script>
+
+<script>
+    // ===== JSON 格式化 =====
+function jsonFormat() {
+    recordToolUsage('JSON 格式化');
+    var input = document.getElementById('jsonInput');
+    var result = document.getElementById('jsonResult');
+    var text = input.value.trim();
+    if (!text) { result.innerHTML = '⚠️ 请输入 JSON 数据'; return; }
+    try {
+        var parsed = JSON.parse(text);
+        var formatted = JSON.stringify(parsed, null, 2);
+        result.innerHTML = '✅ 格式化结果：<br><span style="color:#d4c5a0;font-size:14px;white-space:pre-wrap;font-family:monospace;">' + formatted + '</span>';
+    } catch(e) {
+        result.innerHTML = '⚠️ JSON 格式错误：' + e.message;
+    }
+}
+
+function jsonCompress() {
+    var input = document.getElementById('jsonInput');
+    var result = document.getElementById('jsonResult');
+    var text = input.value.trim();
+    if (!text) { result.innerHTML = '⚠️ 请输入 JSON 数据'; return; }
+    try {
+        var parsed = JSON.parse(text);
+        var compressed = JSON.stringify(parsed);
+        result.innerHTML = '✅ 压缩结果：<br><span style="color:#d4c5a0;font-size:14px;word-break:break-all;">' + compressed + '</span>';
+    } catch(e) {
+        result.innerHTML = '⚠️ JSON 格式错误：' + e.message;
+    }
+}
+
+function clearJson() {
+    document.getElementById('jsonInput').value = '';
+    document.getElementById('jsonResult').innerHTML = '💡 输入 JSON 后点击"格式化"或"压缩"';
+}
+</script>
+
+<script>
+    // ===== YouTube 缩略图下载器 =====
+function getYoutubeThumbnails() {
+    recordToolUsage('YouTube 缩略图下载器');   // ← 加了这行
+    
+    var input = document.getElementById('ytInput');
+    var result = document.getElementById('ytResult');
+    var url = input.value.trim();
+    if (!url) {
+        result.innerHTML = '⚠️ 请输入 YouTube 视频链接';
+        return;
+    }
+    
+    // 提取视频 ID
+    var videoId = null;
+    var patterns = [
+        /(?:youtube\.com\/watch\?v=)([^&]+)/,
+        /(?:youtu\.be\/)([^?]+)/,
+        /(?:youtube\.com\/shorts\/)([^?]+)/
+    ];
+    for (var i = 0; i < patterns.length; i++) {
+        var match = url.match(patterns[i]);
+        if (match) {
+            videoId = match[1];
+            break;
+        }
+    }
+    if (!videoId) {
+        result.innerHTML = '⚠️ 无法识别视频链接，请检查输入';
+        return;
+    }
+    
+    // 生成各分辨率缩略图
+    var qualities = [
+        { label: '最高质量 (1280×720)', size: 'maxresdefault' },
+        { label: '标准质量 (640×480)', size: 'sddefault' },
+        { label: '高清质量 (480×360)', size: 'hqdefault' },
+        { label: '中等质量 (320×180)', size: 'mqdefault' }
+    ];
+    
+    var html = '<div style="width:100%;text-align:left;">';
+    html += '<p style="color:#d4c5a0;font-size:13px;margin-bottom:10px;text-align:center;">✅ 视频 ID：' + videoId + '</p>';
+    
+    for (var j = 0; j < qualities.length; j++) {
+        var q = qualities[j];
+        var imgUrl = 'https://img.youtube.com/vi/' + videoId + '/' + q.size + '.jpg';
+        html += '<div style="display:flex;align-items:center;justify-content:space-between;padding:6px 0;border-bottom:1px solid rgba(212,184,120,0.05);">';
+        html += '<span style="color:rgba(200,180,150,0.6);font-size:13px;">' + q.label + '</span>';
+        html += '<div style="display:flex;gap:10px;align-items:center;">';
+        html += '<a href="' + imgUrl + '" target="_blank" style="color:#d4c5a0;font-size:12px;text-decoration:none;">预览</a>';
+        html += '<a href="' + imgUrl + '" download="thumbnail_' + q.size + '.jpg" style="color:#d4c5a0;font-size:12px;text-decoration:none;background:rgba(212,184,120,0.1);padding:4px 12px;border-radius:6px;">下载</a>';
+        html += '</div></div>';
+    }
+    html += '</div>';
+    
+    result.innerHTML = html;
+}
+
+function clearYoutube() {
+    document.getElementById('ytInput').value = '';
+    document.getElementById('ytResult').innerHTML = '💡 输入 YouTube 链接后点击"获取缩略图"';
+}
 </script>
 
 
