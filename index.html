@@ -633,6 +633,14 @@ body .header p span {
     color: #000000 !important;
 }
 
+/* MD5 结果 */
+body #md5Result {
+    color: #000000 !important;
+}
+body #md5Result span {
+    color: #000000 !important;
+}
+
 }
 </style>
 
@@ -671,8 +679,19 @@ var _hmt = _hmt || [];
             <div class="stats">
                 <span>全部免费 <span style="color:#d4c5a0;font-size:11px;font-weight:400;">· All Free</span></span>
             </div>
+
         </div>
         </div>
+
+        <!-- 👇 加在标题下面 -->
+<div style="text-align:center;padding:8px 20px;margin:10px auto 0 auto;max-width:600px;background:rgba(255,0,0,0.04);border:1px solid rgba(255,0,0,0.08);border-radius:20px;">
+    <span style="color:#ff4444;font-size:18px;">🦞 需要部署 OpenClaw？（养龙虾）</span>
+    <span style="color:rgba(255,68,68,0.2);font-size:18px;margin:0 6px;">|</span>
+    <span style="color:#ff6666;font-size:18px;">远程帮你搞定</span>
+    <span style="color:rgba(255,68,68,0.2);font-size:18px;margin:0 6px;">|</span>
+    <span style="color:#ff6666;font-size:16px;">微信</span>
+    <span style="color:#ff4444;font-size:18px;">下方二维码</span>
+</div>
 
         <!-- ===== 公告轮播（细长条） ===== -->
 <div id="noticeBar" style="max-width:600px;margin:0 auto 25px auto;padding:6px 16px;background:rgba(212,184,120,0.06);border:1px solid rgba(212,184,120,0.08);border-radius:20px;text-align:center;overflow:hidden;height:34px;display:flex;align-items:center;justify-content:center;">
@@ -709,6 +728,8 @@ var _hmt = _hmt || [];
         <span style="color:rgba(212,184,120,0.2);font-size:14px;">|</span>
         <span style="color:#d4c5a0;font-size:14px;">📺 YouTube 缩略图</span>
         <span style="color:rgba(212,184,120,0.2);font-size:14px;">|</span>
+        <span style="color:#d4c5a0;font-size:14px;">🔐 MD5 加密</span>
+        <span style="color:rgba(212,184,120,0.2);font-size:14px;">|</span>
         <!-- 复制一份无缝循环 -->
         <span style="color:#d4c5a0;font-size:14px;">📝 文本工具箱</span>
         <span style="color:rgba(212,184,120,0.2);font-size:14px;">|</span>
@@ -730,6 +751,8 @@ var _hmt = _hmt || [];
         <span style="color:#d4c5a0;font-size:14px;">📦 JSON 格式化</span>
         <span style="color:rgba(212,184,120,0.2);font-size:14px;">|</span>
         <span style="color:#d4c5a0;font-size:14px;">📺 YouTube 缩略图</span>
+        <span style="color:rgba(212,184,120,0.2);font-size:14px;">|</span>
+        <span style="color:#d4c5a0;font-size:14px;">🔐 MD5 加密</span>
         <span style="color:rgba(212,184,120,0.2);font-size:14px;">|</span>
     </div>
 </div>
@@ -766,6 +789,8 @@ var _hmt = _hmt || [];
         <span style="color:rgba(212,184,120,0.2);font-size:14px;">|</span>
         <span style="color:#d4c5a0;font-size:14px;">📺 YouTube 缩略图</span>
         <span style="color:rgba(212,184,120,0.2);font-size:14px;">|</span>
+        <span style="color:#d4c5a0;font-size:14px;">🔐 MD5 加密</span>
+        <span style="color:rgba(212,184,120,0.2);font-size:14px;">|</span>
         <!-- 复制一份无缝循环 -->
         <span style="color:#d4c5a0;font-size:14px;">📝 文本工具箱</span>
         <span style="color:rgba(212,184,120,0.2);font-size:14px;">|</span>
@@ -788,6 +813,8 @@ var _hmt = _hmt || [];
         <span style="color:#d4c5a0;font-size:14px;">📦 JSON 格式化</span>
         <span style="color:rgba(212,184,120,0.2);font-size:14px;">|</span>
         <span style="color:#d4c5a0;font-size:14px;">📺 YouTube 缩略图</span>
+        <span style="color:rgba(212,184,120,0.2);font-size:14px;">|</span>
+        <span style="color:#d4c5a0;font-size:14px;">🔐 MD5 加密</span>
         <span style="color:rgba(212,184,120,0.2);font-size:14px;">|</span>
     </div>
 </div>
@@ -1101,6 +1128,26 @@ var _hmt = _hmt || [];
     <div class="download-row">
         <a href="https://wwalp.lanzout.com/iJWii3ss8mqb" class="download-btn primary"> 下载 <span class="size">10.7MB</span></a>
     </div>
+</div>
+
+<!-- MD5 加密 -->
+<div class="tool-card">
+    <div class="icon"><i data-feather="shield"></i></div>
+    <div class="name">MD5 加密 <span class="version">在线版</span></div>
+    <div class="desc">将文字转换为 MD5 哈希值，用于数据校验。</div>
+    <div class="tags">
+        <span>#安全</span>
+        <span>#加密</span>
+    </div>
+    <div class="tool-area">
+        <textarea id="md5Input" placeholder="输入要加密的文字..." rows="3" style="width:100%;padding:12px;border-radius:10px;border:1px solid rgba(212,184,120,0.2);background:rgba(0,0,0,0.3);color:#e8ddd0;outline:none;resize:vertical;font-family:inherit;"></textarea>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin:10px 0;">
+            <button onclick="md5Encrypt()" style="padding:10px 20px;background:rgba(255,255,255,0.05);color:#d4c5a0;border:1px solid rgba(212,184,120,0.15);border-radius:8px;cursor:pointer;">🔐 生成 MD5</button>
+            <button onclick="clearMd5()" style="padding:10px 16px;background:rgba(255,255,255,0.05);color:#d4c5a0;border:1px solid rgba(212,184,120,0.15);border-radius:8px;cursor:pointer;">🗑️ 清空</button>
+        </div>
+        <div id="md5Result" style="padding:12px;background:rgba(0,0,0,0.2);border-radius:8px;min-height:50px;color:#d4c5a0;font-size:14px;word-break:break-all;">💡 输入文字后点击"生成 MD5"</div>
+    </div>
+    <div class="download-row"><a href="#" class="download-btn primary">💻 在线使用 <span class="size">免安装</span></a></div>
 </div>
 
 <!-- ===== 🎵 媒体工具 ===== -->
@@ -1808,6 +1855,8 @@ function shareSite() {
             <p>输入 JSON 数据 → 点击「格式化」美化排版，或「压缩」去除空格</p>
             <h3 style="color:#d4c5a0;margin:16px 0 8px;">📺 YouTube 缩略图下载器</h3>
             <p>输入 YouTube 链接 → 点击「获取缩略图」→ 选择分辨率下载</p>
+            <h3 style="color:#d4c5a0;margin:16px 0 8px;">🔐 MD5 加密</h3>
+            <p>输入文字 → 点击「生成 MD5」→ 获得 MD5 哈希值</p>
 
             <hr style="border-color:rgba(212,184,120,0.1);margin:20px 0;">
 
@@ -1852,6 +1901,7 @@ document.addEventListener('click', function(e) {
                 <li>新增 JSON 格式化工具</li>
                 <li>新增 Base64 编码/解码工具</li>
                 <li>新增 YouTube 缩略图下载器</li>
+                <li>新增 MD5 加密工具</li>
             </ul>
 
             <h3 style="color:#d4c5a0;margin:16px 0 8px;">📅 2026-06-26</h3>
@@ -1964,6 +2014,7 @@ var toolNames = [
     'Base64 编码/解码',
     'JSON 格式化',
     'YouTube 缩略图下载器',
+    'MD5 加密',
 ];
 
 function getToolUsage() {
@@ -2149,6 +2200,155 @@ function getYoutubeThumbnails() {
 function clearYoutube() {
     document.getElementById('ytInput').value = '';
     document.getElementById('ytResult').innerHTML = '💡 输入 YouTube 链接后点击"获取缩略图"';
+}
+</script>
+
+<script>
+    // ===== MD5 加密 =====
+function md5Encrypt() {
+    recordToolUsage('MD5 加密');
+    var input = document.getElementById('md5Input');
+    var result = document.getElementById('md5Result');
+    var text = input.value;
+    if (!text.trim()) {
+        result.innerHTML = '⚠️ 请先输入文字';
+        return;
+    }
+    var md5 = md5Hash(text);
+    result.innerHTML = '✅ MD5 值：<br><span style="color:#d4c5a0;font-size:15px;word-break:break-all;font-family:monospace;">' + md5 + '</span>';
+}
+
+function clearMd5() {
+    document.getElementById('md5Input').value = '';
+    document.getElementById('md5Result').innerHTML = '💡 输入文字后点击"生成 MD5"';
+}
+
+function md5Hash(str) {
+    function md5cycle(x, k) {
+        var a = x[0], b = x[1], c = x[2], d = x[3];
+        a = ff(a, b, c, d, k[0], 7, -680876936);
+        d = ff(d, a, b, c, k[1], 12, -389564586);
+        c = ff(c, d, a, b, k[2], 17, 606105819);
+        b = ff(b, c, d, a, k[3], 22, -1044525330);
+        a = ff(a, b, c, d, k[4], 7, -176418897);
+        d = ff(d, a, b, c, k[5], 12, 1200080426);
+        c = ff(c, d, a, b, k[6], 17, -1473231341);
+        b = ff(b, c, d, a, k[7], 22, -45705983);
+        a = ff(a, b, c, d, k[8], 7, 1770035416);
+        d = ff(d, a, b, c, k[9], 12, -1958414417);
+        c = ff(c, d, a, b, k[10], 17, -42063);
+        b = ff(b, c, d, a, k[11], 22, -1990404162);
+        a = ff(a, b, c, d, k[12], 7, 1804603682);
+        d = ff(d, a, b, c, k[13], 12, -40341101);
+        c = ff(c, d, a, b, k[14], 17, -1502002290);
+        b = ff(b, c, d, a, k[15], 22, 1236535329);
+        a = gg(a, b, c, d, k[1], 5, -165796510);
+        d = gg(d, a, b, c, k[6], 9, -1069501632);
+        c = gg(c, d, a, b, k[11], 14, 643717713);
+        b = gg(b, c, d, a, k[0], 20, -373897302);
+        a = gg(a, b, c, d, k[5], 5, -701558691);
+        d = gg(d, a, b, c, k[10], 9, 38016083);
+        c = gg(c, d, a, b, k[15], 14, -660478335);
+        b = gg(b, c, d, a, k[4], 20, -405537848);
+        a = gg(a, b, c, d, k[9], 5, 568446438);
+        d = gg(d, a, b, c, k[14], 9, -1019803690);
+        c = gg(c, d, a, b, k[3], 14, -187363961);
+        b = gg(b, c, d, a, k[8], 20, 1163531501);
+        a = gg(a, b, c, d, k[13], 5, -1444681467);
+        d = gg(d, a, b, c, k[2], 9, -51403784);
+        c = gg(c, d, a, b, k[7], 14, 1735328473);
+        b = gg(b, c, d, a, k[12], 20, -1926607734);
+        a = hh(a, b, c, d, k[5], 4, -378558);
+        d = hh(d, a, b, c, k[8], 11, -2022574463);
+        c = hh(c, d, a, b, k[11], 16, 1839030562);
+        b = hh(b, c, d, a, k[14], 23, -35309556);
+        a = hh(a, b, c, d, k[1], 4, -1530992060);
+        d = hh(d, a, b, c, k[4], 11, 1272893353);
+        c = hh(c, d, a, b, k[7], 16, -155497632);
+        b = hh(b, c, d, a, k[10], 23, -1094730640);
+        a = hh(a, b, c, d, k[13], 4, 681279174);
+        d = hh(d, a, b, c, k[0], 11, -358537222);
+        c = hh(c, d, a, b, k[3], 16, -722521979);
+        b = hh(b, c, d, a, k[6], 23, 76029189);
+        a = hh(a, b, c, d, k[9], 4, -640364487);
+        d = hh(d, a, b, c, k[12], 11, -421815835);
+        c = hh(c, d, a, b, k[15], 16, 530742520);
+        b = hh(b, c, d, a, k[2], 23, -995338651);
+        a = ii(a, b, c, d, k[0], 6, -198630844);
+        d = ii(d, a, b, c, k[7], 10, 1126891415);
+        c = ii(c, d, a, b, k[14], 15, -1416354905);
+        b = ii(b, c, d, a, k[5], 21, -57434055);
+        a = ii(a, b, c, d, k[12], 6, 1700485571);
+        d = ii(d, a, b, c, k[3], 10, -1894986606);
+        c = ii(c, d, a, b, k[10], 15, -1051523);
+        b = ii(b, c, d, a, k[1], 21, -2054922799);
+        a = ii(a, b, c, d, k[8], 6, 1873313359);
+        d = ii(d, a, b, c, k[15], 10, -30611744);
+        c = ii(c, d, a, b, k[6], 15, -1560198380);
+        b = ii(b, c, d, a, k[13], 21, 1309151649);
+        a = ii(a, b, c, d, k[4], 6, -145523070);
+        d = ii(d, a, b, c, k[11], 10, -1120210379);
+        c = ii(c, d, a, b, k[2], 15, 718787259);
+        b = ii(b, c, d, a, k[9], 21, -343485551);
+        x[0] = add32(a, x[0]);
+        x[1] = add32(b, x[1]);
+        x[2] = add32(c, x[2]);
+        x[3] = add32(d, x[3]);
+    }
+    function cmn(q, a, b, x, s, t) {
+        a = add32(add32(a, q), add32(x, t));
+        return add32((a << s) | (a >>> (32 - s)), b);
+    }
+    function ff(a, b, c, d, x, s, t) {
+        return cmn((b & c) | ((~b) & d), a, b, x, s, t);
+    }
+    function gg(a, b, c, d, x, s, t) {
+        return cmn((b & d) | (c & (~d)), a, b, x, s, t);
+    }
+    function hh(a, b, c, d, x, s, t) {
+        return cmn(b ^ c ^ d, a, b, x, s, t);
+    }
+    function ii(a, b, c, d, x, s, t) {
+        return cmn(c ^ (b | (~d)), a, b, x, s, t);
+    }
+    function add32(a, b) {
+        return (a + b) & 0xFFFFFFFF;
+    }
+    function md5binl(str) {
+        var bin = [], len = str.length;
+        for (var i = 0; i < len; i += 1) {
+            bin[i >> 2] |= (str.charCodeAt(i) & 255) << ((i % 4) * 8);
+        }
+        return bin;
+    }
+    function md5blk(bin, len) {
+        var i, olda, oldb, oldc, oldd, x = [], len2 = len * 8;
+        for (i = 0; i < 64; i += 4) {
+            x[i >> 2] = bin[i] | (bin[i + 1] << 8) | (bin[i + 2] << 16) | (bin[i + 3] << 24);
+        }
+        var a = 1732584193, b = -271733879, c = -1732584194, d = 271733878;
+        for (i = 0; i < 16; i++) {
+            olda = a; oldb = b; oldc = c; oldd = d;
+            md5cycle([a, b, c, d], x);
+            a = add32(a, olda);
+            b = add32(b, oldb);
+            c = add32(c, oldc);
+            d = add32(d, oldd);
+        }
+        return [a, b, c, d];
+    }
+    function binl2hex(bin) {
+        var hex = '';
+        for (var i = 0; i < bin.length * 4; i += 1) {
+            var byte = (bin[i >> 2] >> ((i % 4) * 8)) & 255;
+            hex += ('0' + byte.toString(16)).slice(-2);
+        }
+        return hex;
+    }
+    var bin = md5binl(str);
+    var len = str.length;
+    var blk = md5blk(bin, len);
+    return binl2hex(blk);
 }
 </script>
 
